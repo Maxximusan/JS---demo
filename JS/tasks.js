@@ -1,0 +1,105 @@
+// #1
+// Your start-up's BA has told marketing that your website has a large audience in Scandinavia and surrounding countries. Marketing thinks it would be great to welcome visitors to the site in their own language. Luckily you already use an API that detects the user's location, so this is an easy win.
+
+// The Task
+// Think of a way to store the languages as a database (eg an object). The languages are listed below so you can copy and paste!
+// Write a 'welcome' function that takes a parameter 'language' (always a string), and returns a greeting - if you have it in your database. It should default to English if the language is not in the database, or in the event of an invalid input.
+// The Database
+// english: 'Welcome',
+// czech: 'Vitejte',
+// danish: 'Velkomst',
+// dutch: 'Welkom',
+// estonian: 'Tere tulemast',
+// finnish: 'Tervetuloa',
+// flemish: 'Welgekomen',
+// french: 'Bienvenue',
+// german: 'Willkommen',
+// irish: 'Failte',
+// italian: 'Benvenuto',
+// latvian: 'Gaidits',
+// lithuanian: 'Laukiamas',
+// polish: 'Witamy',
+// spanish: 'Bienvenido',
+// swedish: 'Valkommen',
+// welsh: 'Croeso'
+
+function greet(language) {
+  const out = {
+    english: "Welcome",
+    czech: "Vitejte",
+    danish: "Velkomst",
+    dutch: "Welkom",
+    estonian: "Tere tulemast",
+    finnish: "Tervetuloa",
+    flemish: "Welgekomen",
+    french: "Bienvenue",
+    german: "Willkommen",
+    irish: "Failte",
+    italian: "Benvenuto",
+    latvian: "Gaidits",
+    lithuanian: "Laukiamas",
+    polish: "Witamy",
+    spanish: "Bienvenido",
+    swedish: "Valkommen",
+    welsh: "Croeso",
+  };
+  console.log(language);
+  console.log(out[language]); // когда данные приходят динамически и мы не можем знать имя ключа.
+
+  console.log(out.english);
+  console.log(out["english"]);
+  return out[language] || out.english; //-- или идентично out['english']
+}
+
+greet("spanish");
+
+//#2
+// Complete the function which returns the weekday according to the input number:
+
+// 1 returns "Sunday"
+// 2 returns "Monday"
+// 3 returns "Tuesday"
+// 4 returns "Wednesday"
+// 5 returns "Thursday"
+// 6 returns "Friday"
+// 7 returns "Saturday"
+// Otherwise returns "Wrong, please enter a number between 1 and 7"
+
+function whatday(num) {
+  switch (num) {
+    case 1:
+      return "Sunday";
+    case 2:
+      return "Monday";
+    case 3:
+      return "Tuesday";
+    case 4:
+      return "Wednesday";
+    case 5:
+      return "Thursday";
+    case 6:
+      return "Friday";
+    case 7:
+      return "Saturday";
+    default:
+      return "Wrong, please enter a number between 1 and 7";
+  }
+}
+whatday(3);
+console.log(whatday(6));
+
+//#3
+// Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
+// Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
+function lovefunc(flower1, flower2) {
+  if (flower1 % 2 !== 0 && flower2 % 2 === 0) return true;
+  else if (flower2 % 2 !== 0 && flower1 % 2 === 0) return true;
+  else return false;
+}
+lovefunc(1, 2);
+console.log(lovefunc(2, 2));
+
+// вариант короче
+// function lovefunc(flower1, flower2) {
+//   return flower1 % 2 !== flower2 % 2;
+// }
