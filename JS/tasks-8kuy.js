@@ -100,9 +100,9 @@ lovefunc(1, 2);
 console.log(lovefunc(2, 2));
 
 // вариант короче
-// function lovefunc(flower1, flower2) {
-//   return flower1 % 2 !== flower2 % 2;
-// }
+function lovefunc(flower1, flower2) {
+  return flower1 % 2 !== flower2 % 2;
+}
 
 //#4
 //This function should test if the factor is a factor of base.
@@ -147,4 +147,59 @@ function chromosomeCheck(sperm) {
   return `Congratulations! You're going to have a ${
     sperm === "XY" ? "son" : "daughter"
   }.`;
+}
+
+// #6
+// DESCRIPTION:
+// If you can't sleep, just count sheep!!
+// Task:
+// Given a non-negative integer, 3 for example, return a string with a murmur: "1 sheep...2 sheep...3 sheep...". Input will always be valid, i.e. no negative integers.
+const countSheep = function (num) {
+  let result = "";
+  for (let i = 1; i <= num; i += 1) {
+    result += i.toString() + " sheep...";
+  }
+  return result;
+};
+
+//#7
+// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+// Examples:
+// solution('abc', 'bc') // returns true
+// solution('abc', 'd') // returns false
+function solution(str, ending) {
+  return str.endsWith(ending);
+}
+// or
+function solution(str, ending) {
+  return str.slice(0 - ending.length) === ending;
+}
+
+// #8
+// This time no story, no theory. The examples below show you how to write function accum:
+// Examples:
+// accum("abcd") -> "A-Bb-Ccc-Dddd"
+// accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt") -> "C-Ww-Aaa-Tttt"
+function accum(s) {
+  return [...s]
+    .map((char, index) => char.toUpperCase() + char.toLowerCase().repeat(index))
+    .join("-");
+}
+
+// or
+
+function accum(s) {
+  const result = [];
+  const lowerStr = s.toLowerCase();
+
+  for (let i = 0; i < lowerStr.length; i++) {
+    let str = lowerStr[i].toUpperCase();
+    for (let j = 0; j < i; j++) {
+      str += lowerStr[i];
+    }
+    result.push(str);
+  }
+
+  return result.join("-");
 }
