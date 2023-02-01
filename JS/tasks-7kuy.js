@@ -89,6 +89,8 @@ const longest = (s1, s2) => [...new Set(s1 + s2)].sort().join("");
 // isIsogram "moose" = false
 // isIsogram "aba" = false
 function isIsogram(str) {
+  //   Set.prototype.size
+  // Возвращает количество значений в Setобъекте.
   const set = new Set(str.toUpperCase()).size;
   // console.log(str.length === set);
   if (str.length === set) {
@@ -99,3 +101,44 @@ function isIsogram(str) {
 }
 
 isIsogram("qwerty");
+
+// #7
+// Bubblesort is an inefficient sorting algorithm that is simple to understand and therefore often taught in introductory computer science courses as an example how not to sort a list. Nevertheless, it is correct in the sense that it eventually produces a sorted version of the original list when executed to completion.
+// At the heart of Bubblesort is what is known as a pass. Let's look at an example at how a pass works.
+// Consider the following list:
+// 9, 7, 5, 3, 1, 2, 4, 6, 8
+// We initiate a pass by comparing the first two elements of the list. Is the first element greater than the second? If so, we swap the two elements. Since 9 is greater than 7 in this case, we swap them to give 7, 9. The list then becomes:
+// 7, 9, 5, 3, 1, 2, 4, 6, 8
+// We then continue the process for the 2nd and 3rd elements, 3rd and 4th elements ... all the way up to the last two elements. When the pass is complete, our list becomes:
+// 7, 5, 3, 1, 2, 4, 6, 8, 9
+// Notice that the largest value 9 "bubbled up" to the end of the list. This is precisely how Bubblesort got its name.
+// Task
+// Given an array of integers, your function bubblesortOnce/bubblesort_once/BubblesortOnce (or equivalent, depending on your language's naming conventions) should return a new array equivalent to performing exactly 1 complete pass on the original array. Your function should be pure, i.e. it should not mutate the input array.
+
+function bubblesortOnce(a) {
+  let A = [...a];
+  const lastIndex = A.length - 1;
+  for (let index = 0; index < lastIndex; index += 1) {
+    if (A[index] > A[index + 1]) {
+      [A[index], A[index + 1]] = [A[index + 1], A[index]];
+    }
+  }
+  return A;
+}
+// or
+function bubblesortOnce(a) {
+  let newArr = [...a];
+  newArr.forEach((ele, ind, arr) => {
+    if (ele >= arr[ind + 1]) {
+      newArr[ind] = arr[ind + 1];
+      newArr[ind + 1] = ele;
+    }
+  });
+  return newArr;
+}
+// or
+function bubblesortOnce(a) {
+  return [...a].map((e, i, arr) =>
+    e > arr[i + 1] ? ((arr[i] = arr[i + 1]), (arr[i + 1] = e), arr[i]) : e
+  );
+}
