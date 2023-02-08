@@ -162,3 +162,35 @@ function sumTwoSmallestNumbers(numbers) {
   numbers.sort((a, b) => a - b);
   return numbers[0] + numbers[1];
 }
+
+// #9
+// Vowel Count
+// Return the number (count) of vowels in the given string.
+// We will consider a, e, i, o, u as vowels for this Kata (but not y).
+// The input string will only consist of lower case letters and/or spaces.
+
+function getCount(str) {
+  let count = 0;
+  const vowels = ["a", "e", "i", "o", "u"];
+  const string = str.toLowerCase();
+  for (let char of string) {
+    if (vowels.includes(char)) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+// or
+
+function getCount(str) {
+  let count = 0;
+  const vowels = ["a", "e", "i", "o", "u"];
+  const string = str.toLowerCase().split("");
+  count = string.reduce((total, item) => {
+    if (vowels.includes(item)) total += 1;
+    return total;
+  }, 0);
+
+  return count;
+}
