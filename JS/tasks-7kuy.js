@@ -43,7 +43,7 @@ function filter_list(l) {
   return l.filter((e) => Number.isInteger(e));
 }
 
-// #3
+// #3 - возвращает числа в порядке убывания
 // Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
 // Examples:
 // Input: 42145 Output: 54421
@@ -55,7 +55,7 @@ function descendingOrder(n) {
 }
 // Целое число, к строке, разбив на масив строк, сортировка по unicode, реверс, объединение в строку
 
-// #4
+// #4 - возвращает имена из 4х букв
 // Make a program that filters a list of strings and returns a list with only your friends name in it.
 // If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
 // Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
@@ -90,7 +90,7 @@ const longest = (s1, s2) => [...new Set(s1 + s2)].sort().join("");
 // isIsogram "aba" = false
 function isIsogram(str) {
   //   Set.prototype.size
-  // Возвращает количество значений в Setобъекте.
+  // Возвращает количество значений в Setобъекте (по типу length).
   const set = new Set(str.toUpperCase()).size;
   // console.log(str.length === set);
   if (str.length === set) {
@@ -102,7 +102,7 @@ function isIsogram(str) {
 
 isIsogram("qwerty");
 
-// #7
+// #7 - сравнение предыдущего элемента с последующим и сортируем от мленького к большому.
 // Bubblesort is an inefficient sorting algorithm that is simple to understand and therefore often taught in introductory computer science courses as an example how not to sort a list. Nevertheless, it is correct in the sense that it eventually produces a sorted version of the original list when executed to completion.
 // At the heart of Bubblesort is what is known as a pass. Let's look at an example at how a pass works.
 // Consider the following list:
@@ -143,13 +143,14 @@ function bubblesortOnce(a) {
   );
 }
 
-// #8
+// #8 - выбираем 2 самых маленьких числа из массива
 // Sum of two lowest positive integers
 // Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
 // For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
 // [10, 343445353, 3453445, 3453545353453] should return 3453455.
 
 function sumTwoSmallestNumbers(numbers) {
+  // оператор ...rest (остаточные параметры)
   var [lowest1, lowest2, ...others] = numbers.sort(
     (currentEl, nextEl) => currentEl - nextEl
   );
@@ -194,3 +195,92 @@ function getCount(str) {
 
   return count;
 }
+
+// №10 - приводим к бинарному числу
+// Implement a function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
+// The binary number returned should be a string.
+// Examples:(Input1, Input2 --> Output (explanation)))
+// 1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
+// 5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)
+
+function addBinary(a, b) {
+  return (a + b).toString(2);
+}
+
+// #11 ищем Х и О
+// Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+// Examples input/output:
+// XO("ooxx") => true
+// XO("xooxx") => false
+// XO("ooxXm") => true
+// XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+// XO("zzoo") => false
+
+const test = "aehfbjgbldrhsgbr;bqui;dllbdmfjxxoo";
+test2(test);
+console.log(test2(test));
+
+function test2(test) {
+  const split = test.toLowerCase().split("");
+  const X = "x";
+  const O = "o";
+
+  console.log(split);
+
+  let countX = 0;
+  let countO = 0;
+  let char;
+  for (char of split) {
+    if (char === X) {
+      countX += 1;
+    } else if (char === O) {
+      countO += 1;
+    }
+  }
+
+  console.log(countX);
+  console.log(countO);
+  if (countX === countO) {
+    return true;
+  } else if (char !== X && char !== O) return true;
+  else return false;
+}
+
+// or reduce
+
+// function test2(test) {
+//   const split = test.toLowerCase().split("");
+//   console.log(split);
+
+//   const X = split.reduce((total, item) => {
+//     return total + (item === "x");
+//   }, 0);
+//   const O = split.reduce((total, item) => {
+//     return total + (item === "o");
+//   }, 0);
+//   console.log(X);
+//   console.log(O);
+//   if (X === O) {
+//     return true;
+//   } else if (!X && !O) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// or for
+
+// function XO(str) {
+//   let x = 0;
+//   let o = 0;
+//   let arr = [...(str.toLowerCase() + "")].map(String);
+//   for (let i = 0; i < str.length; i++) {
+//     if (arr[i] === "x") {
+//       x+=1;
+//     } else if (arr[i] === "o") {
+//       o+=1;
+//     }
+//   }
+//   return x === o ? true : false;
+// }

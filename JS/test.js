@@ -555,3 +555,27 @@ function greet(language) {
 }
 
 greet("spanish");
+
+console.dir(_);
+
+// чтобы не мутировать первоначальные данные
+// использовать  spread
+// const person = (arg) => {
+//   const newarg = {...arg}
+// };
+
+// или Object.assign;
+// const param = { name: "Selena", profession: "slut" };
+// const paramsecond = { price: "100$" };
+// const paramthird = { price: "200$", age: 19 };
+// const newObj = {};
+// const newperson = Object.assign(newObj, param, paramsecond, paramthird);
+// console.log(newObj);
+// console.log(newObj === newperson);
+
+// или lodash (_.clone)
+// const obj = [{ a: 1 }, { b: 2 }, { c: 3 }];
+// const newobj = _.clone(obj);
+// console.log(newobj);
+// console.log(newobj === obj);
+// console.log(newobj[0] === obj[0]);
