@@ -189,3 +189,51 @@ String.prototype.toAlternatingCase = function () {
     )
     .join("");
 };
+
+// #9
+// Given an array of integers your solution should find the smallest integer.
+// For example:
+// Given [34, 15, 88, 2] your solution will return 2
+// Given [34, -345, -1, 100] your solution will return -345
+// You can assume, for the purpose of this kata, that the supplied array will not be empty.
+
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    return Math.min(...args);
+  }
+}
+
+// or
+
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    args.sort((a, b) => {
+      return a - b;
+    });
+    return args[0];
+  }
+}
+
+// #10
+// Given a non-empty array of integers, return the result of multiplying the values together in order. Example:
+// [1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
+
+function grow(x) {
+  return x.reduce((accumulator, currentValue) => accumulator * currentValue);
+}
+
+function grow(x) {
+  let sum = 1;
+  x.map((i) => (sum *= i));
+  return sum;
+}
+
+// or
+
+function grow(x) {
+  let result = 1;
+  for (let i = 0; i < x.length; i += 1) {
+    result *= x[i];
+  }
+  return result;
+}

@@ -558,6 +558,8 @@ greet("spanish");
 
 console.dir(_);
 
+// Тренируюсь по cracking.js
+// Урок 1-2
 // чтобы не мутировать первоначальные данные
 // использовать  spread
 // const person = (arg) => {
@@ -579,3 +581,51 @@ console.dir(_);
 // console.log(newobj);
 // console.log(newobj === obj);
 // console.log(newobj[0] === obj[0]);
+
+// урок 3
+const people = [
+  { name: "Bobby", age: 18, pro: "fharma" },
+  { name: "Max", age: 38, pro: "poker_pro" },
+  { name: "Vova", age: 38, pro: "medical" },
+  { name: "Arnold", age: 20, pro: "kach" },
+  { name: "Lucy", age: 19, pro: "porn_model" },
+];
+
+const Bbbb = people.filter((person) => person.age > 35);
+console.log(Bbbb);
+
+const Cccc = people.map((person) => person.age > 35);
+console.log(Cccc);
+
+const ddd = people.map((person) => ({ ...person, name: "John" }));
+console.log(ddd);
+
+const oldest = people.reduce((prev, person) => {
+  // debugger;
+  if (prev < person.age) {
+    return person.age;
+  }
+  return prev;
+}, 17);
+console.log(oldest);
+
+/////////
+const PO = "cat, dog, cow";
+const LO = "cat dog cow";
+
+const OL = LO.split(" ");
+const OP = PO.split(",");
+const OLL = OL.join(", ");
+const OPP = OP.join(" |");
+
+console.log(OL);
+console.log(OP);
+console.log(OLL);
+console.log(OPP);
+
+//изменение свойства одного из ключей
+const newName = people.map((person) =>
+  // debugger;
+  person.name === "Vova" ? (person.name = "Jamal") : person.name
+);
+console.log(newName);
