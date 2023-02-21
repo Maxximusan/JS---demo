@@ -55,3 +55,27 @@ const expandedForm = (n) => {
 
 // console.log(Math.pow(10, 0)); любое число в нулевой степени равно 1-му
 expandedForm(70305);
+
+// #2
+// Build Tower
+// Build a pyramid-shaped tower, as an array/list of strings, given a positive integer number of floors. A tower block is represented with "*" character.
+// For example, a tower with 3 floors looks like this:
+// [
+//   "  *  ",
+//   " *** ",
+//   "*****"
+// ]
+
+function towerBuilder(numberOfFloors) {
+  let arrayTower = [];
+  let space;
+  let star;
+
+  for (let i = 1; i <= numberOfFloors; i += 1) {
+    space = " ".repeat(numberOfFloors - i);
+    star = "*".repeat(2 * i - 1);
+    arrayTower.push(`${space}${star}${space}`);
+  }
+  return arrayTower;
+}
+console.log(towerBuilder(10));

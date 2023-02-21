@@ -583,49 +583,86 @@ console.dir(_);
 // console.log(newobj[0] === obj[0]);
 
 // урок 3
-const people = [
-  { name: "Bobby", age: 18, pro: "fharma" },
-  { name: "Max", age: 38, pro: "poker_pro" },
-  { name: "Vova", age: 38, pro: "medical" },
-  { name: "Arnold", age: 20, pro: "kach" },
-  { name: "Lucy", age: 19, pro: "porn_model" },
-];
+// const people = [
+//   { name: "Bobby", age: 18, pro: "fharma" },
+//   { name: "Max", age: 38, pro: "poker_pro" },
+//   { name: "Vova", age: 38, pro: "medical" },
+//   { name: "Arnold", age: 20, pro: "kach" },
+//   { name: "Lucy", age: 19, pro: "porn_model" },
+// ];
 
-const Bbbb = people.filter((person) => person.age > 35);
-console.log(Bbbb);
+// const Bbbb = people.filter((person) => person.age > 35);
+// console.log(Bbbb);
 
-const Cccc = people.map((person) => person.age > 35);
-console.log(Cccc);
+// const Cccc = people.map((person) => person.age > 35);
+// console.log(Cccc);
 
-const ddd = people.map((person) => ({ ...person, name: "John" }));
-console.log(ddd);
+// const ddd = people.map((person) => ({ ...person, name: "John" }));
+// console.log(ddd);
 
-const oldest = people.reduce((prev, person) => {
-  // debugger;
-  if (prev < person.age) {
-    return person.age;
-  }
-  return prev;
-}, 17);
-console.log(oldest);
+// const oldest = people.reduce((prev, person) => {
+//   // debugger;
+//   if (prev < person.age) {
+//     return person.age;
+//   }
+//   return prev;
+// }, 17);
+// console.log(oldest);
 
-/////////
-const PO = "cat, dog, cow";
-const LO = "cat dog cow";
+// /////////
+// const PO = "cat, dog, cow";
+// const LO = "cat dog cow";
 
-const OL = LO.split(" ");
-const OP = PO.split(",");
-const OLL = OL.join(", ");
-const OPP = OP.join(" |");
+// const OL = LO.split(" ");
+// const OP = PO.split(",");
+// const OLL = OL.join(", ");
+// const OPP = OP.join(" |");
 
-console.log(OL);
-console.log(OP);
-console.log(OLL);
-console.log(OPP);
+// console.log(OL);
+// console.log(OP);
+// console.log(OLL);
+// console.log(OPP);
 
-//изменение свойства одного из ключей
-const newName = people.map((person) =>
-  // debugger;
-  person.name === "Vova" ? (person.name = "Jamal") : person.name
-);
-console.log(newName);
+// //изменение свойства одного из ключей
+// const newName = people.map((person) =>
+//   // debugger;
+//   person.name === "Vova" ? (person.name = "Jamal") : person.name
+// );
+// console.log(newName);
+
+// урок 4
+
+const bob = { name: "Bob", age: 40, prof: "Builder" };
+const bill = { name: "Bill", prof: "QA", yearsExp: 2 };
+const lucy = { name: "Lucy", prof: "pornstar", startYear: 2000 };
+
+const common = { ...bob, ...bill, hasHouse: true };
+// const common = Object.assign(bob, bill, { hasHouse: true });
+
+console.log(common);
+console.log(bob.prof, bill.age, bob.hasHouse);
+console.log(bob);
+
+// Object.assign мутирует - поэтому в 643 строке hasHose есть - а при спреде - нет
+////////////////
+
+const animals = ["cow", "pig", "cat", "dog"];
+
+// const example = animals.push("horse");
+console.log(animals.push("horse"));
+console.log(animals.pop());
+// console.log(example);
+console.log(animals);
+
+// урок 4.1 - замыкание (пример Репеты)
+const sheff = function (name) {
+  const dish = function (dish) {
+    console.log(`${name} приготовил ${dish}`);
+  };
+  return dish;
+};
+
+const result = sheff("Alex");
+
+result("Cake");
+console.dir(result);
