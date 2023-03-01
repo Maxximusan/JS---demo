@@ -666,3 +666,22 @@ const result = sheff("Alex");
 
 result("Cake");
 console.dir(result);
+
+// деструктуризация
+const objfordestr = {
+  name: "Bryan",
+  age: 28,
+  position: "teamLead",
+};
+
+const { name, age, position } = objfordestr;
+
+console.log(name);
+console.log(age);
+console.log(position);
+
+let [fistitem, seconditem, ...other] = "fuck this evil world".split(" ");
+
+console.log(fistitem);
+console.log(seconditem);
+console.log(other);

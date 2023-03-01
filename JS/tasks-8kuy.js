@@ -237,3 +237,26 @@ function grow(x) {
   }
   return result;
 }
+
+// #11
+// Is it a palindrome ?
+// Write a function that checks if a given string (case insensitive) is a palindrome.
+function isPalindrome(x) {
+  let X = x.toLowerCase().split("").reverse().join("");
+  let xx = x.toLowerCase();
+
+  if (X === xx) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(isPalindrome("aBbA"));
+
+// or
+
+const isPalindrome = (x) => {
+  return x.split("").reverse().join("").toLowerCase() === x.toLowerCase()
+    ? true
+    : false;
+};
