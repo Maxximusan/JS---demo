@@ -685,3 +685,92 @@ let [fistitem, seconditem, ...other] = "fuck this evil world".split(" ");
 console.log(fistitem);
 console.log(seconditem);
 console.log(other);
+
+// урок 4.2
+// итератор (асинхронный перебор коллекции)
+
+const array = [1, 2, "Max", 4, 5];
+const iterator = array[Symbol.iterator]();
+iterator.next();
+console.log(iterator.next());
+console.log(iterator.next());
+//
+
+const max = {
+  name: "Max",
+  age: "38",
+  daughter: "Sofia",
+};
+
+const iterator2 = Object.entries(max)[Symbol.iterator]();
+console.log(iterator2.next());
+console.log(iterator2.next());
+console.log(iterator2.next());
+console.log(iterator2.next());
+
+//this (по Репете 5.1)
+// пример 1
+const yourt = {
+  name: "ryan",
+  age: 28,
+
+  getage() {
+    console.log("age ryan", this);
+  },
+};
+
+yourt.getage();
+
+//пример 2
+const testThis2 = function () {
+  console.log("testThis2", this);
+  console.log("testThis2", this.tag);
+  console.log("testThis2", this.bug);
+};
+
+const ololo = {
+  tag: "fuck",
+  bug: "muck",
+};
+
+ololo.opa = testThis2;
+
+console.log("ololo", ololo);
+
+ololo.opa();
+
+//
+// call и apply (вызывают контекст здесь и сейчас), bind (копия ф-и с привязаным контекстом)---- привязка контекста
+const changeColor = function (color) {
+  console.log("changeColor ---->", this);
+  this.color = color;
+};
+
+const hat = {
+  color: "black",
+};
+// changeColor.call(hat, "orange");
+// console.log(hat);
+
+const sweater = {
+  color: "green",
+};
+
+// changeColor.call(sweater, "orange");
+// console.log(sweater);
+
+// или bind
+const changeHatColor = changeColor.bind(hat);
+const changeSweaterColor = changeColor.bind(sweater);
+changeSweaterColor();
+changeHatColor();
+console.log(hat);
+console.log(sweater);
+
+const ratata = (pop) => {
+  const pop2 = [...pop];
+  const pop3 = pop2.reduce((acc, cur) => acc + cur, 0);
+  console.log(pop3);
+};
+
+ratata([1, 2, 3, 4, 5]);
