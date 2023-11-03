@@ -609,7 +609,7 @@ console.dir(_);
 // }, 17);
 // console.log(oldest);
 
-// /////////
+/////////
 // const PO = "cat, dog, cow";
 // const LO = "cat dog cow";
 
@@ -643,7 +643,7 @@ console.log(common);
 console.log(bob.prof, bill.age, bob.hasHouse);
 console.log(bob);
 
-// Object.assign мутирует - поэтому в 643 строке hasHose есть - а при спреде - нет
+// Object.assign мутирует - поэтому в 642 строке hasHose есть - а при спреде - нет
 ////////////////
 
 const animals = ["cow", "pig", "cat", "dog"];
@@ -775,4 +775,98 @@ const ratata = (pop) => {
 
 ratata([1, 2, 3, 4, 5]);
 
+//craking js 2.3
+// const owner = {
+//   name: "Freddy",
+//   age: 21,
+//   home: "Krakow",
+// };
 
+// const dog = {
+//   name: "Petrovich",
+//   age: 2,
+//   breed: "French Buldog",
+// };
+
+// const map = new Map();
+
+// map.set(owner, dog);
+// console.log(owner);
+// console.log(dog);
+// console.log(map);
+
+// const funrrr = () => {
+//   console.log(map);
+// };
+
+// const trt = true;
+// const map1 = new Map();
+
+// map1.set(funrrr, trt);
+
+// console.log(map1);
+
+const qo = "1";
+const qa = +"2" + 1;
+console.log(qa);
+
+const qz = 1 + "10";
+console.log(qz);
+
+const qs = "10" + 1;
+console.log(qs);
+
+const qx = 1 + +"10";
+console.log(qx);
+
+const qw = {};
+const qe = String(qw);
+console.log(qe);
+
+function User(name, age, prof, gender, isAdmin) {
+  this.name = name;
+  this.age = age;
+  this.prof = prof;
+  this.gender = gender;
+  this.isAdmin = isAdmin;
+}
+const zzz = new User("Lucy", 23, "slut", "female", false);
+console.log(zzz);
+
+
+// craking js 4.2 (sort, slice, flat)
+// let fff = [1, 1000, 5, 78, 24, 503, 300, 68];
+
+// const newFff = [...fff];
+// function compareNumbers(a, b) {
+//   return a - b;
+// }
+
+// function compareNumbersReverse(a, b) {
+//   return b - a;
+// }
+// console.log(newFff.join());
+// console.log(newFff.sort());
+// console.log(newFff.sort(compareNumbers));
+// console.log(newFff.sort(compareNumbersReverse));
+
+let wpeokf = 'this is fucking good '
+let hfsb = Array.from(wpeokf)
+console.log(hfsb);
+console.log(hfsb.slice(0,3));
+console.log(hfsb.slice(1,4));
+console.log(hfsb.slice(5,10));
+
+let cbh = [1,2,3, [4,5,[6,7,[8,9]]]]
+console.log(cbh.flat());
+console.log(cbh.flat(2));
+console.log(cbh.flat(3));
+
+
+const animalsAgain = ['cat', 'dog', 'fish', 'bird']
+const iteratorAnimals = animalsAgain.entries()
+console.log(iteratorAnimals.next());
+console.log(iteratorAnimals.next());
+console.log(iteratorAnimals.next());
+console.log(iteratorAnimals.next());
+console.log(iteratorAnimals.next());
