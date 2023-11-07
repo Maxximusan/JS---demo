@@ -870,3 +870,35 @@ console.log(iteratorAnimals.next());
 console.log(iteratorAnimals.next());
 console.log(iteratorAnimals.next());
 console.log(iteratorAnimals.next());
+
+
+
+// задача для собеседования с сеттаймаутом - что сдесь не так ?
+for(var i = 0; i < 10; i++) {
+  setTimeout(() => console.log(i), 0)
+}
+// ответ: сеттайм аут выполняется вконце, когда значение i - уже 10 !!!
+
+// Решение:
+// Вариант 1 (заменить var (у которого функциональная область видимости - и он создается вне цикла for) на let (у которого блочная область видимости - и он создается внутри цикла for))
+for (let i = 0; i < 10; i+= 1){
+  //sync !!!!!
+  setTimeout(
+    //async !!!!!
+    () => {
+console.log(i);
+  }, 0)
+}
+// Вариант 2 (таким образом на момент вызова колбека ему передастся актуальное значение i - на момент запуска сеттаймаута. a - это второй и до десятого аргумент)
+// for(var i = 0; i < 10; i++) {
+//   setTimeout((a) => console.log(a), 0, i)
+// }
+
+// Вариант 3
+// for(var i = 0; i < 10; i++) {
+//   const func = () => {
+//     var value = i
+//   setTimeout(() => console.log(value), 0)
+// }
+// func()
+// }
