@@ -902,3 +902,79 @@ console.log(i);
 // }
 // func()
 // }
+
+
+
+// Тесты кахута - то что забыл или не заметил проверяю
+// 1 нюанс что выводится если передать иили не передать user (по сути правила для || и &&)
+const user = { name: 'Lucy'}
+
+const myFunc = (user) => {
+const currentUser = user || {name: 'Coreena'}
+const userName = user && user.name
+console.log(currentUser.name, userName);
+}
+
+myFunc()
+// myFunc(user)
+
+// 2 привод к булеан значению 2 варианта
+const xc = !!-1
+console.log(xc);
+const zxc = new Boolean(-1)
+console.log(zxc);
+
+// 3 не знал что тут 1 получается
+const pizdec = true + false
+const pizdec1 = true - false
+console.log(pizdec);
+console.log(pizdec1);
+
+// 4 вывод всех аргументов
+function aeto (a,b,c){
+  var aa = Array.from(arguments).slice(item => item)
+  var bb = [...arguments].filter(item => item)
+
+  console.log(aa);
+  console.log(bb);
+
+}
+
+aeto('Adonis', 'Boris', 'Coco')
+
+//5
+var group = {
+  person: 'MotherFucker'
+}
+
+function whatAfuck(b){
+  console.log(b);
+  var newGroup = b
+  newGroup.person='Bill'
+
+  if(b){
+    newGroup.person = 'John'
+  }
+  return newGroup
+}
+var neewPerson = whatAfuck(group).person
+// или убрать .person со строки выше и записать в консоль.лог ниже
+console.log(neewPerson);
+console.log(group.person);
+
+//6 проверка что покажет bind, apply, call (bind как на уроке - а вот call и apply НЕТ и я ранее такое видел уже)
+var a11 = {
+  b: 1,
+  getContext: function() { console.log(this) }
+}
+var d11 = {prop: 'here'}
+var g11 = a11.getContext.bind(d11)
+let b11 = a11.getContext.apply(d11)
+console.log(g11, b11);
+
+//7 - проверка как я создал метод для ddd
+var ddd = { b:3 }
+console.log(ddd);
+ddd.getThis = a11.getContext
+console.log(ddd);
+ddd.getThis()
