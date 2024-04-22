@@ -1,5 +1,6 @@
 
 
+
 const imitatePrizePoolInTournament = (quantityPlayers, guarantee, buyIn ) => {
 //  турнир стартует от 100 человек
 if (quantityPlayers < 100){
@@ -314,7 +315,7 @@ else {
 
 
 
-imitatePrizePoolInTournament(2500, 2000000, 1100.00)
+imitatePrizePoolInTournament(2431, 2000000, 1100.00)
 
 //передаем:
 // 1-количсетво игроков , 2- гарантия, 3-деньги(вход), 
@@ -343,3 +344,8 @@ imitatePrizePoolInTournament(2500, 2000000, 1100.00)
 
 // 3: 
 // 1000 в призы , 100 комиссия
+
+
+
+// -------------------------------------------------
+

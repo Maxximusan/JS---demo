@@ -520,6 +520,7 @@ const eeee = {};
 const wwww = "1,2,3,4";
 const qqqqq = [1, 2, 3, 4];
 let ssss = "JOHNNY";
+console.log(eeee[wwww]);
 eeee[wwww] = ssss;
 console.log(eeee);
 console.log(eeee[wwww]);
