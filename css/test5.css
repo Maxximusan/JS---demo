@@ -13,9 +13,9 @@
 }
 .chooseScheduleContainer{
     display: flex;
-    gap: 40px;
+    gap: 60px;
     flex-wrap: wrap;
-  
+    flex-direction: column;
 
 }
 
