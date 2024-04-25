@@ -28,6 +28,14 @@ const spanSecSevensthName = document.querySelector('#valueName72')
 const spanEighthName = document.querySelector('#valueName81')
 const spanSecEighththName = document.querySelector('#valueName82')
 
+const refs = {
+    firstTitleChoose: document.querySelector('[data-active-color = "define-first-player"]'),
+    secondTitleChoose: document.querySelector('[data-active-color = "define-second-player"]'),
+    thirdTitleChoose: document.querySelector('[data-active-color = "define-third-player"]'),
+    firstTitlePS: document.querySelector('[data-active-color = "define-first-PS"]'),
+    secondTitlePS: document.querySelector('[data-active-color = "define-second-PS"]'),
+    fifthTitlePS: document.querySelector('[data-active-color = "define-fifth-PS"]'),
+}
 
 changeAction1.addEventListener('click', chooseName)
 changeAction2.addEventListener('click', chooseSecondName)
@@ -91,6 +99,9 @@ alert('Кто же будет первым участником в первой 
    
    disabledButton(this)
    enableBtn(changeAction2)
+
+   inactiveTitleColor(refs.firstTitleChoose)
+   activeTitleColor(refs.secondTitleChoose)
    
 }
 
@@ -114,6 +125,9 @@ function chooseSecondName(){
    
     disabledButton(this)
     enableBtn(changeAction3)
+
+    inactiveTitleColor(refs.secondTitleChoose)
+    activeTitleColor(refs.thirdTitleChoose)
 }
 
 //2.3
@@ -134,6 +148,9 @@ function chooseThirdName() {
     addOtherClassForPlayerName(valueThirdName)
     disabledButton(this)
     enableBtn(changeAction4)
+
+    inactiveTitleColor(refs.thirdTitleChoose)
+    activeTitleColor(refs.firstTitlePS)
     
     changeArrayNameBeforeNextStep()
 }
@@ -194,6 +211,14 @@ function changeArrayNameBeforeNextStep(){
     console.log(chosenNames);
     console.log(newNames);
 }
+//3.5 активный цвет 
+function activeTitleColor(valueTitle){
+    valueTitle.classList.add('js-actions3')
+}
+
+function inactiveTitleColor(valueTitle){
+    valueTitle.classList.add('js-actions4')
+}
 
 ///////////////////////////////////////////
 //4. жеребъевка индивидуальных игр
@@ -216,6 +241,9 @@ function choosePersonalScheludeForFistPlayer(){
 
     disabledButton(this)
    enableBtn(changeAction5)
+
+   inactiveTitleColor(refs.firstTitlePS)
+    activeTitleColor(refs.secondTitlePS)
 }
 
 function choosePSForSecAndThirdPlayers(){
@@ -250,6 +278,10 @@ function choosePSForSecAndThirdPlayers(){
 
     disabledButton(this)
     enableBtn(changeAction7)
+
+    inactiveTitleColor(refs.secondTitlePS)
+    activeTitleColor(refs.fifthTitlePS)
+    
 }
 
 function chosePSForFouAndFifPlayers(){
@@ -283,6 +315,8 @@ function chosePSForFouAndFifPlayers(){
     addAnotherClassForPlayerName(spanSecEighththName)
 
     disabledButton(this)
+
+    inactiveTitleColor(refs.fifthTitlePS)
 }
 //5 Дополгительно к пункту 4
 //5.1 Доп класс
