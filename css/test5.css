@@ -141,6 +141,23 @@ color: #ff9494;
     margin-bottom: 20px;
 }
 
+.footer{
+    background-color: #aade90;
+    /* #50a05a */
+}
+
+.last-tittle{
+    font-size: 48px;
+    color:navy;
+    padding: 32px;
+    text-align: center;
+}
+
+.picCont{
+    display: flex;
+    justify-content: center;
+}
+
 .js-actions{
     font-size: 36px;
     color:aqua;

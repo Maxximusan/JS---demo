@@ -1,3 +1,11 @@
+// import { Report } from 'notiflix/build/notiflix-report-aio';
+// import { Report } from '../node_modules/notiflix/build/notiflix-report-aio.js';
+
+// import Notiflix from 'notiflix';
+
+
+
+
 const changeAction1 = document.querySelector('button[data-action = "choose1"]')
 const valueNum = document.querySelector('#valueNumber')
 const valueName = document.querySelector('#valueName1')
@@ -90,6 +98,11 @@ firstRoundNumber = getRandomArbitrary(1,6)
  valueNum.textContent = firstRoundNumber
 
 alert('Кто же будет первым участником в первой игре турнира?')
+
+// Notiflix.Report.success('Title', 'Кто же будет первым участником в первой игре турнира?', 'Button Text');
+
+
+
   firstRoundName = randomNames(names)
  console.log(firstRoundName);
  valueName.textContent = firstRoundName
@@ -226,8 +239,13 @@ function choosePersonalScheludeForFistPlayer(){
     alert("Готовы?")
     firstNameForPS = randomNames(chosenNames)
     spanFourthName.textContent = `${firstNameForPS}`
-    spanSecFourthName.textContent = `${firstMPS}`
-    
+
+    //основное индивидуальное рассписание
+    // spanSecFourthName.textContent = `${firstMPS}`
+
+    //альтернативное индивидуальное рассписание
+    spanSecFourthName.textContent = `${altFirstMPS}`
+   
 
     const cutChosen = chosenNames.find((el)=> el === firstNameForPS)
     console.log(cutChosen);
@@ -250,7 +268,12 @@ function choosePSForSecAndThirdPlayers(){
     alert("Иииии )))")
     secondNameForPS = randomNames(chosenNames)
     spanFifthName.textContent = `${secondNameForPS}`
-    spanSecFifthName.textContent = `${secondMPS}`
+
+    //основное индивидуальное рассписание
+    // spanSecFifthName.textContent = `${secondMPS}`
+    
+    //альтернативное индивидуальное рассписание
+    spanSecFifthName.textContent = `${altSecondMPS}`
     
 
 
@@ -270,8 +293,13 @@ function choosePSForSecAndThirdPlayers(){
     console.log(thirdNameForPS);
 
     spanSixthName.textContent = `${thirdNameForPS}`
-    spanSecSixththName.textContent = `${thirdMPS}`
 
+    //основное индивидуальное рассписание
+    // spanSecSixththName.textContent = `${thirdMPS}`
+
+    //альтернативное индивидуальное рассписание
+    spanSecSixththName.textContent = `${altThirdndMPS}`
+    
     
     addAnotherClassForPlayerName(spanSixthName)
     addAnotherClassForPlayerName(spanSecSixththName)
@@ -288,9 +316,13 @@ function chosePSForFouAndFifPlayers(){
     alert("Иииии )))")
     fourthNameForPS = randomNames(newNames)
     spanSevenththName.textContent = `${fourthNameForPS}`
-    spanSecSevensthName.textContent = `${fourthMPS}`
-    
 
+    //основное индивидуальное рассписание
+    // spanSecSevensthName.textContent = `${fourthMPS}`
+    
+    //альтернативное индивидуальное рассписание
+    spanSecSevensthName.textContent = `${altFourthMPS}`
+     
 
     const cutChosen = newNames.find((el)=> el === fourthNameForPS)
     console.log(cutChosen);
@@ -308,7 +340,12 @@ function chosePSForFouAndFifPlayers(){
     console.log(fifthNameForPS);
 
     spanEighthName.textContent = `${fifthNameForPS}`
-    spanSecEighththName.textContent = `${fifthMPS}`
+
+    //основное индивидуальное рассписание
+    // spanSecEighththName.textContent = `${fifthMPS}`
+
+     //альтернативное индивидуальное рассписание
+     spanSecEighththName.textContent = `${altFifthMPS}`
 
     
     addAnotherClassForPlayerName(spanEighthName)
@@ -324,3 +361,14 @@ function addAnotherClassForPlayerName (valueName) {
     valueName.classList.add('js-actions2')
 }
 
+
+
+
+/* 6й раунд
+нужно написать ф-ю в которую параметрами передастся результат другой ??? 
+где уже определены сыграные уникальные игры , соответственно выборка из оставшихся .
+1. определяем случайно первого участника
+2. определяем 2го участника случайно
+2.1 если с ним уже 2жды встречался - 3й участник автоматически ясен! (нужна ли мне вообще тогда такая ф-я ?????)
+или
+2.2 если с ним пересекался 1 раз - тогда выборка 3го участника случайным образом из 2х варимантов*/
