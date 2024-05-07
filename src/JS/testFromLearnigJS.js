@@ -1,7 +1,7 @@
 // #1 alert, promt, confirm
 
-alert('Ты')
-alert('Заебал')
+alert( 'Ты' )
+alert( 'Заебал' )
 
 // let age = prompt('Сколько тебе лет?', 10);
 // alert(`Тебе ${age} лет!`); 
@@ -80,8 +80,11 @@ console.log(2 * ++counter1); // приоритет "префиксной фор�
 
 
 
+
+
+
 // #90
-// новый метод "перевертыш"
+// новый метод "перевертыш" - toReversed()
 
 const hyh = [1,3,4,6,7]
 const jik = ['Max','Pola', 'Lucy', 'Francess', 'Lu']
@@ -90,6 +93,21 @@ const jik = ['Max','Pola', 'Lucy', 'Francess', 'Lu']
 console.log(hyh.toReversed()); 
 console.log(jik.toReversed());
 
-// старый метод меняет оришинальный массив
+// старый метод меняет оригинальный массив
 console.log(hyh.reverse());
 console.log(jik.reverse());
+
+
+// #91
+// новый метод  - toSpliced()
+
+const months = ["Jan", "Feb", "Mar", "Apr"];
+const spliced = months.toSpliced(0, 1);
+
+// новый метод создает новый массив не изменяя старый.
+console.log(spliced);
+console.log(months);
+
+// старый метод меняет оригинальный массив
+console.log(months.splice(0, 1));
+console.log(months);

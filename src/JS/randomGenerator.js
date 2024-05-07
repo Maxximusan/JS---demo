@@ -1,7 +1,9 @@
 // import { Report } from 'notiflix/build/notiflix-report-aio';
 // import { Report } from '../node_modules/notiflix/build/notiflix-report-aio.js';
+// import Notiflix from "../node_modules/notiflix/index.d.ts";
+import Notiflix from 'notiflix';
+console.log(Notiflix);
 
-// import Notiflix from 'notiflix';
 
 
 
@@ -88,23 +90,35 @@ let thirdNameForPS
 let fourthNameForPS
 let fifthNameForPS
 
+
+// названия для Алертов и Нотифлекса
+let whoFirstPlayer = 'Кто же будет первым участником в первой игре турнира?'
+
+
 //2.1
-function chooseName() {
+ function chooseName() {
     
 //  const op = getRandomNumber(quantityPlayers)
 
 firstRoundNumber = getRandomArbitrary(1,6)
  console.log(firstRoundNumber);
+ 
  valueNum.textContent = firstRoundNumber
 
-alert('Кто же будет первым участником в первой игре турнира?')
+   
+  
+alert(`${whoFirstPlayer}`)
 
-// Notiflix.Report.success('Title', 'Кто же будет первым участником в первой игре турнира?', 'Button Text');
+
 
 
 
   firstRoundName = randomNames(names)
  console.log(firstRoundName);
+
+ //это фннкция для использовани Notiflix
+//  tryNotiflixStopScript(whoFirstPlayer, firstRoundName, this)
+
  valueName.textContent = firstRoundName
  addOtherClassForPlayerName(valueName)
 
@@ -362,7 +376,30 @@ function addAnotherClassForPlayerName (valueName) {
 }
 
 
+// //6 пробую нотифлекс 
+//  function tryNotiflixStopScript (value, name, thisFromChooseName){
+//     Notiflix.Report.warning(
+//         'ИТАК',
+//         `${value}`,
+//          'Смотрим', () => {
+//             nextStep(name, thisFromChooseName)
+//          }
+//         );
+       
+// }
+// // 6.1
+// function nextStep (name, thisFromChooseName) {
+//     valueName.textContent = name
+//     addOtherClassForPlayerName(valueName)
 
+//    console.log(thisFromChooseName);
+   
+//    disabledButton(thisFromChooseName)
+//    enableBtn(changeAction2)
+
+//    inactiveTitleColor(refs.firstTitleChoose)
+//    activeTitleColor(refs.secondTitleChoose)
+// }
 
 /* 6й раунд
 нужно написать ф-ю в которую параметрами передастся результат другой ??? 
