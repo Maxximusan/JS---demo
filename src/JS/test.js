@@ -1,5 +1,3 @@
-
-
 // // function findLongestWord(string) {
 
 // //     let allWord = string.split(' ');
@@ -520,13 +518,14 @@ function no(error) {
 // !!!!!
 const eeee = {};
 const wwww = "1,2,3,4";
-const qqqqq = [1, 2, 3, 4];
 let ssss = "JOHNNY";
 console.log(eeee[wwww]);
-eeee[wwww] = ssss;
-console.log(eeee);
-console.log(eeee[wwww]);
+eeee[wwww] = ssss; // в пустой объект мы ложим ключем то что в wwww и свойством задаем ssss
+console.log(eeee); // теперь у нас не пустой объект
+console.log(eeee[wwww]); // это идентичная запись как и обращение через точку к свойству. (но мы не можем так в данном случае -- eeee.'1-2-3-4' -- это не одним словом (сложная) и не покажет через точку)
+//А если поменять местами ssss и wwww -- мы сможем написать через сточку eeee.ssss и увидеть в консоле !!! Квадратные скобки дают намного больше возможностей, чем запись через точку.
 console.log(ssss);
+
 
 //Задача из кодварс
 function greet(language) {
@@ -556,10 +555,9 @@ function greet(language) {
   console.log(out["english"]);
   return out[language] || out.english; //-- или идентично out['english']
 }
-
 greet("spanish");
 
-console.dir(_);
+// console.dir(_);
 
 // Тренируюсь по cracking.js
 // Урок 1-2

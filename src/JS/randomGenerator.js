@@ -1,44 +1,39 @@
-// import { Report } from 'notiflix/build/notiflix-report-aio';
-// import { Report } from '../node_modules/notiflix/build/notiflix-report-aio.js';
-// import Notiflix from "../node_modules/notiflix/index.d.ts";
+
 import Notiflix from 'notiflix';
 console.log(Notiflix);
 
 
-
-
-
-const changeAction1 = document.querySelector('button[data-action = "choose1"]')
-const valueNum = document.querySelector('#valueNumber')
-const valueName = document.querySelector('#valueName1')
-
-const changeAction2 = document.querySelector('button[data-action = "choose2"]')
-const valueSecondName = document.querySelector('#valueName2')
-
-const changeAction3 = document.querySelector('button[data-action = "choose3"]')
-const valueThirdName = document.querySelector('#valueName3')
-
-const changeAction4 = document.querySelector('button[data-action = "choose4"]')
-const valueFourthName = document.querySelector('#valueName4')
-const spanFourthName = document.querySelector('#valueName41')
-const spanSecFourthName = document.querySelector('#valueName42')
-
-const changeAction5 = document.querySelector('button[data-action = "choose5"]')
-// const valueFifthName = document.querySelector('#valueName5')
-const spanFifthName = document.querySelector('#valueName51')
-const spanSecFifthName = document.querySelector('#valueName52')
-// const valueSixthName = document.querySelector('#valueName6')
-const spanSixthName = document.querySelector('#valueName61')
-const spanSecSixththName = document.querySelector('#valueName62')
-
-const changeAction7 = document.querySelector('button[data-action = "choose7"]')
-// const valueSeventhName = document.querySelector('#valueName7')
-const spanSevenththName = document.querySelector('#valueName71')
-const spanSecSevensthName = document.querySelector('#valueName72')
-const spanEighthName = document.querySelector('#valueName81')
-const spanSecEighththName = document.querySelector('#valueName82')
-
 const refs = {
+    changeAction1: document.querySelector('button[data-action = "choose1"]'),
+    valueNum: document.querySelector('#valueNumber'),
+    valueName: document.querySelector('#valueName1'),
+    
+    changeAction2: document.querySelector('button[data-action = "choose2"]'),
+    valueSecondName: document.querySelector('#valueName2'),
+    
+    changeAction3: document.querySelector('button[data-action = "choose3"]'),
+    valueThirdName: document.querySelector('#valueName3'),
+    
+    changeAction4: document.querySelector('button[data-action = "choose4"]'),
+    // valueFourthName: document.querySelector('#valueName4'),
+    spanFourthName: document.querySelector('#valueName41'),
+    spanSecFourthName: document.querySelector('#valueName42'),
+    
+    changeAction5: document.querySelector('button[data-action = "choose5"]'),
+    // valueFifthName: document.querySelector('#valueName5'),
+    spanFifthName: document.querySelector('#valueName51'),
+    spanSecFifthName: document.querySelector('#valueName52'),
+    // valueSixthName: document.querySelector('#valueName6'),
+    spanSixthName: document.querySelector('#valueName61'),
+    spanSecSixththName: document.querySelector('#valueName62'),
+    
+    changeAction7: document.querySelector('button[data-action = "choose7"]'),
+    // valueSeventhName: document.querySelector('#valueName7'),
+    spanSevenththName: document.querySelector('#valueName71'),
+    spanSecSevensthName: document.querySelector('#valueName72'),
+    spanEighthName: document.querySelector('#valueName81'),
+    spanSecEighththName: document.querySelector('#valueName82'),
+
     firstTitleChoose: document.querySelector('[data-active-color = "define-first-player"]'),
     secondTitleChoose: document.querySelector('[data-active-color = "define-second-player"]'),
     thirdTitleChoose: document.querySelector('[data-active-color = "define-third-player"]'),
@@ -47,13 +42,13 @@ const refs = {
     fifthTitlePS: document.querySelector('[data-active-color = "define-fifth-PS"]'),
 }
 
-changeAction1.addEventListener('click', chooseName)
-changeAction2.addEventListener('click', chooseSecondName)
-changeAction3.addEventListener('click', chooseThirdName)
+refs.changeAction1.addEventListener('click', chooseName)
+refs.changeAction2.addEventListener('click', chooseSecondName)
+refs.changeAction3.addEventListener('click', chooseThirdName)
 
-changeAction4.addEventListener('click', choosePersonalScheludeForFistPlayer)
-changeAction5.addEventListener('click', choosePSForSecAndThirdPlayers)
-changeAction7.addEventListener('click', chosePSForFouAndFifPlayers)
+refs.changeAction4.addEventListener('click', choosePersonalScheludeForFistPlayer)
+refs.changeAction5.addEventListener('click', choosePSForSecAndThirdPlayers)
+refs.changeAction7.addEventListener('click', chosePSForFouAndFifPlayers)
 
 //Future names of chosen players
 let firstRoundNumber = 0;
@@ -103,7 +98,7 @@ let whoFirstPlayer = 'Кто же будет первым участником �
 firstRoundNumber = getRandomArbitrary(1,6)
  console.log(firstRoundNumber);
  
- valueNum.textContent = firstRoundNumber
+ refs.valueNum.textContent = firstRoundNumber
 
    
   
@@ -119,13 +114,14 @@ alert(`${whoFirstPlayer}`)
  //это фннкция для использовани Notiflix
 //  tryNotiflixStopScript(whoFirstPlayer, firstRoundName, this)
 
- valueName.textContent = firstRoundName
- addOtherClassForPlayerName(valueName)
+refs.valueName.textContent = firstRoundName
+ addOtherClassForPlayerName(refs.valueName)
 
    console.log(this);
+   console.log(refs.changeAction1);
    
    disabledButton(this)
-   enableBtn(changeAction2)
+   enableBtn(refs.changeAction2)
 
    inactiveTitleColor(refs.firstTitleChoose)
    activeTitleColor(refs.secondTitleChoose)
@@ -146,12 +142,12 @@ function chooseSecondName(){
     alert(`${firstRoundName}, кто же будет вашим первым соперником?`)
     secondRoundName = randomNames(newNames)
     console.log(secondRoundName );
-    valueSecondName.textContent = secondRoundName 
+    refs.valueSecondName.textContent = secondRoundName 
 
-    addOtherClassForPlayerName(valueSecondName)
+    addOtherClassForPlayerName(refs.valueSecondName)
    
     disabledButton(this)
-    enableBtn(changeAction3)
+    enableBtn(refs.changeAction3)
 
     inactiveTitleColor(refs.secondTitleChoose)
     activeTitleColor(refs.thirdTitleChoose)
@@ -170,11 +166,11 @@ function chooseThirdName() {
     console.log(newNames);
     thirdRoundName = randomNames(newNames)
     console.log(thirdRoundName);
-    valueThirdName.textContent = thirdRoundName
+    refs.valueThirdName.textContent = thirdRoundName
 
-    addOtherClassForPlayerName(valueThirdName)
+    addOtherClassForPlayerName(refs.valueThirdName)
     disabledButton(this)
-    enableBtn(changeAction4)
+    enableBtn(refs.changeAction4)
 
     inactiveTitleColor(refs.thirdTitleChoose)
     activeTitleColor(refs.firstTitlePS)
@@ -252,13 +248,13 @@ function inactiveTitleColor(valueTitle){
 function choosePersonalScheludeForFistPlayer(){
     alert("Готовы?")
     firstNameForPS = randomNames(chosenNames)
-    spanFourthName.textContent = `${firstNameForPS}`
+    refs.spanFourthName.textContent = `${firstNameForPS}`
 
     //основное индивидуальное рассписание
-    // spanSecFourthName.textContent = `${firstMPS}`
+    // refs.spanSecFourthName.textContent = `${firstMPS}`
 
     //альтернативное индивидуальное рассписание
-    spanSecFourthName.textContent = `${altFirstMPS}`
+    refs.spanSecFourthName.textContent = `${altFirstMPS}`
    
 
     const cutChosen = chosenNames.find((el)=> el === firstNameForPS)
@@ -268,11 +264,11 @@ function choosePersonalScheludeForFistPlayer(){
     chosenNames.splice(olala, 1)
     console.log(chosenNames);
 
-    addAnotherClassForPlayerName(spanFourthName)
-    addAnotherClassForPlayerName(spanSecFourthName)
+    addAnotherClassForPlayerName(refs.spanFourthName)
+    addAnotherClassForPlayerName(refs.spanSecFourthName)
 
     disabledButton(this)
-   enableBtn(changeAction5)
+   enableBtn(refs.changeAction5)
 
    inactiveTitleColor(refs.firstTitlePS)
     activeTitleColor(refs.secondTitlePS)
@@ -281,13 +277,13 @@ function choosePersonalScheludeForFistPlayer(){
 function choosePSForSecAndThirdPlayers(){
     alert("Иииии )))")
     secondNameForPS = randomNames(chosenNames)
-    spanFifthName.textContent = `${secondNameForPS}`
+    refs.spanFifthName.textContent = `${secondNameForPS}`
 
     //основное индивидуальное рассписание
-    // spanSecFifthName.textContent = `${secondMPS}`
+    // refs.spanSecFifthName.textContent = `${secondMPS}`
     
     //альтернативное индивидуальное рассписание
-    spanSecFifthName.textContent = `${altSecondMPS}`
+    refs.spanSecFifthName.textContent = `${altSecondMPS}`
     
 
 
@@ -298,28 +294,28 @@ function choosePSForSecAndThirdPlayers(){
     chosenNames.splice(olala, 1)
     console.log(chosenNames);
 
-    addAnotherClassForPlayerName(spanFifthName)
-    addAnotherClassForPlayerName(spanSecFifthName)
+    addAnotherClassForPlayerName(refs.spanFifthName)
+    addAnotherClassForPlayerName(refs.spanSecFifthName)
 
     console.log(thirdNameForPS);
    
     thirdNameForPS = randomNames(chosenNames)
     console.log(thirdNameForPS);
 
-    spanSixthName.textContent = `${thirdNameForPS}`
+    refs.spanSixthName.textContent = `${thirdNameForPS}`
 
     //основное индивидуальное рассписание
     // spanSecSixththName.textContent = `${thirdMPS}`
 
     //альтернативное индивидуальное рассписание
-    spanSecSixththName.textContent = `${altThirdndMPS}`
+    refs.spanSecSixththName.textContent = `${altThirdndMPS}`
     
     
-    addAnotherClassForPlayerName(spanSixthName)
-    addAnotherClassForPlayerName(spanSecSixththName)
+    addAnotherClassForPlayerName(refs.spanSixthName)
+    addAnotherClassForPlayerName(refs.spanSecSixththName)
 
     disabledButton(this)
-    enableBtn(changeAction7)
+    enableBtn(refs.changeAction7)
 
     inactiveTitleColor(refs.secondTitlePS)
     activeTitleColor(refs.fifthTitlePS)
@@ -329,13 +325,13 @@ function choosePSForSecAndThirdPlayers(){
 function chosePSForFouAndFifPlayers(){
     alert("Иииии )))")
     fourthNameForPS = randomNames(newNames)
-    spanSevenththName.textContent = `${fourthNameForPS}`
+    refs.spanSevenththName.textContent = `${fourthNameForPS}`
 
     //основное индивидуальное рассписание
-    // spanSecSevensthName.textContent = `${fourthMPS}`
+    // refs.spanSecSevensthName.textContent = `${fourthMPS}`
     
     //альтернативное индивидуальное рассписание
-    spanSecSevensthName.textContent = `${altFourthMPS}`
+    refs.spanSecSevensthName.textContent = `${altFourthMPS}`
      
 
     const cutChosen = newNames.find((el)=> el === fourthNameForPS)
@@ -345,25 +341,25 @@ function chosePSForFouAndFifPlayers(){
     newNames.splice(olala, 1)
     console.log(newNames);
 
-    addAnotherClassForPlayerName(spanSevenththName)
-    addAnotherClassForPlayerName(spanSecSevensthName)
+    addAnotherClassForPlayerName(refs.spanSevenththName)
+    addAnotherClassForPlayerName(refs.spanSecSevensthName)
 
     console.log(fourthNameForPS);
    
     fifthNameForPS = randomNames(newNames)
     console.log(fifthNameForPS);
 
-    spanEighthName.textContent = `${fifthNameForPS}`
+    refs.spanEighthName.textContent = `${fifthNameForPS}`
 
     //основное индивидуальное рассписание
-    // spanSecEighththName.textContent = `${fifthMPS}`
+    // refs.spanSecEighththName.textContent = `${fifthMPS}`
 
      //альтернативное индивидуальное рассписание
-     spanSecEighththName.textContent = `${altFifthMPS}`
+     refs.spanSecEighththName.textContent = `${altFifthMPS}`
 
     
-    addAnotherClassForPlayerName(spanEighthName)
-    addAnotherClassForPlayerName(spanSecEighththName)
+    addAnotherClassForPlayerName(refs.spanEighthName)
+    addAnotherClassForPlayerName(refs.spanSecEighththName)
 
     disabledButton(this)
 
@@ -389,13 +385,13 @@ function addAnotherClassForPlayerName (valueName) {
 // }
 // // 6.1
 // function nextStep (name, thisFromChooseName) {
-//     valueName.textContent = name
-//     addOtherClassForPlayerName(valueName)
+//     refs.valueName.textContent = name
+//     addOtherClassForPlayerName(refs.valueName)
 
 //    console.log(thisFromChooseName);
    
 //    disabledButton(thisFromChooseName)
-//    enableBtn(changeAction2)
+//    enableBtn(refs.changeAction2)
 
 //    inactiveTitleColor(refs.firstTitleChoose)
 //    activeTitleColor(refs.secondTitleChoose)
