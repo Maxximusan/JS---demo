@@ -130,15 +130,13 @@ refs.valueName.textContent = firstRoundName
 
 //2.2
 function chooseSecondName(){
-    const cutChosen = newNames.find((el)=> el === firstRoundName)
-    console.log(cutChosen);
-    const olala = newNames.findIndex((el) => el === firstRoundName)
-    console.log(olala);
-    newNames.splice(olala, 1)
+
+    findAndDeleteNecessaryPlayer(newNames, firstRoundName)
+    
     chosenNames.push(firstRoundName)
     console.log(chosenNames);
    
-    console.log(newNames);
+    
     alert(`${firstRoundName}, кто же будет вашим первым соперником?`)
     secondRoundName = randomNames(newNames)
     console.log(secondRoundName );
@@ -155,15 +153,14 @@ function chooseSecondName(){
 
 //2.3
 function chooseThirdName() {
-    const cutChosen = newNames.find((el)=> el === secondRoundName)
-    console.log(cutChosen);
-    const olala = newNames.findIndex((el) => el === secondRoundName)
-    console.log(olala);
-    newNames.splice(olala, 1)
+
+    findAndDeleteNecessaryPlayer(newNames, secondRoundName)
+    
     chosenNames.push(secondRoundName)
     console.log(chosenNames);
+
     alert(`${firstRoundName} и ${secondRoundName}, кто же составит вам компанию?`)
-    console.log(newNames);
+    
     thirdRoundName = randomNames(newNames)
     console.log(thirdRoundName);
     refs.valueThirdName.textContent = thirdRoundName
@@ -225,14 +222,12 @@ function addOtherClassForPlayerName (valueName) {
 }
 //3.4 убираем 3е имя из массива и добавляем его в другой для следующего шага - жеребъевки индивидуальных игр
 function changeArrayNameBeforeNextStep(){
-    const cutChosen = newNames.find((el)=> el === thirdRoundName)
-    console.log(cutChosen);
-    const olala = newNames.findIndex((el) => el === thirdRoundName)
-    console.log(olala);
-    newNames.splice(olala, 1)
+
+    findAndDeleteNecessaryPlayer(newNames, thirdRoundName)
+    
     chosenNames.push(thirdRoundName)
     console.log(chosenNames);
-    console.log(newNames);
+   
 }
 //3.5 активный цвет 
 function activeTitleColor(valueTitle){
@@ -256,21 +251,15 @@ function choosePersonalScheludeForFistPlayer(){
     //альтернативное индивидуальное рассписание
     refs.spanSecFourthName.textContent = `${altFirstMPS}`
    
-
-    const cutChosen = chosenNames.find((el)=> el === firstNameForPS)
-    console.log(cutChosen);
-    const olala = chosenNames.findIndex((el) => el === firstNameForPS)
-    console.log(olala);
-    chosenNames.splice(olala, 1)
-    console.log(chosenNames);
-
+    findAndDeleteNecessaryPlayer(chosenNames, firstNameForPS)
+    
     addAnotherClassForPlayerName(refs.spanFourthName)
     addAnotherClassForPlayerName(refs.spanSecFourthName)
 
     disabledButton(this)
-   enableBtn(refs.changeAction5)
+    enableBtn(refs.changeAction5)
 
-   inactiveTitleColor(refs.firstTitlePS)
+    inactiveTitleColor(refs.firstTitlePS)
     activeTitleColor(refs.secondTitlePS)
 }
 
@@ -286,14 +275,8 @@ function choosePSForSecAndThirdPlayers(){
     refs.spanSecFifthName.textContent = `${altSecondMPS}`
     
 
-
-    const cutChosen = chosenNames.find((el)=> el === secondNameForPS)
-    console.log(cutChosen);
-    const olala = chosenNames.findIndex((el) => el === secondNameForPS)
-    console.log(olala);
-    chosenNames.splice(olala, 1)
-    console.log(chosenNames);
-
+    findAndDeleteNecessaryPlayer(chosenNames, secondNameForPS)
+    
     addAnotherClassForPlayerName(refs.spanFifthName)
     addAnotherClassForPlayerName(refs.spanSecFifthName)
 
@@ -333,14 +316,8 @@ function chosePSForFouAndFifPlayers(){
     //альтернативное индивидуальное рассписание
     refs.spanSecSevensthName.textContent = `${altFourthMPS}`
      
-
-    const cutChosen = newNames.find((el)=> el === fourthNameForPS)
-    console.log(cutChosen);
-    const olala = newNames.findIndex((el) => el === fourthNameForPS)
-    console.log(olala);
-    newNames.splice(olala, 1)
-    console.log(newNames);
-
+    findAndDeleteNecessaryPlayer(newNames, fourthNameForPS)
+    
     addAnotherClassForPlayerName(refs.spanSevenththName)
     addAnotherClassForPlayerName(refs.spanSecSevensthName)
 
@@ -371,8 +348,20 @@ function addAnotherClassForPlayerName (valueName) {
     valueName.classList.add('js-actions2')
 }
 
+//6 дополнительно к 2 и 4
+//6.1 удаляем случайно выбранного игрока из нужного нам массива (для следующего рандомного выбора из оставшихся)
+function findAndDeleteNecessaryPlayer (necessaryArrayOfPlayers, playerName){
 
-// //6 пробую нотифлекс 
+    const cutChosen = necessaryArrayOfPlayers.find((el)=> el === playerName)
+    console.log(cutChosen);
+    const olala = necessaryArrayOfPlayers.findIndex((el) => el === playerName)
+    console.log(olala);
+    necessaryArrayOfPlayers.splice(olala, 1)
+    console.log(necessaryArrayOfPlayers);
+
+}
+
+// //7 пробую нотифлекс 
 //  function tryNotiflixStopScript (value, name, thisFromChooseName){
 //     Notiflix.Report.warning(
 //         'ИТАК',
@@ -383,7 +372,7 @@ function addAnotherClassForPlayerName (valueName) {
 //         );
        
 // }
-// // 6.1
+// // 7.1
 // function nextStep (name, thisFromChooseName) {
 //     refs.valueName.textContent = name
 //     addOtherClassForPlayerName(refs.valueName)
@@ -397,7 +386,7 @@ function addAnotherClassForPlayerName (valueName) {
 //    activeTitleColor(refs.secondTitleChoose)
 // }
 
-/* 6й раунд
+/* Жеребьевка с 6го раунда ??????????????????
 нужно написать ф-ю в которую параметрами передастся результат другой ??? 
 где уже определены сыграные уникальные игры , соответственно выборка из оставшихся .
 1. определяем случайно первого участника
