@@ -90,7 +90,9 @@ let fifthNameForPS
 let whoFirstPlayer = 'Кто же будет первым участником в первой игре турнира?'
 
 
-//2.1
+//ОСНОВЫНЕ ФУНКЦИИ 
+// 1- Жеребъевка участников первой игры
+//1.1 - первый участник
  function chooseName() {
     
 //  const op = getRandomNumber(quantityPlayers)
@@ -99,13 +101,9 @@ firstRoundNumber = getRandomArbitrary(1,6)
  console.log(firstRoundNumber);
  
  refs.valueNum.textContent = firstRoundNumber
-
    
   
 alert(`${whoFirstPlayer}`)
-
-
-
 
 
   firstRoundName = randomNames(names)
@@ -128,7 +126,7 @@ refs.valueName.textContent = firstRoundName
    
 }
 
-//2.2
+//1.2 - второй участник
 function chooseSecondName(){
 
     findAndDeleteNecessaryPlayer(newNames, firstRoundName)
@@ -151,7 +149,7 @@ function chooseSecondName(){
     activeTitleColor(refs.thirdTitleChoose)
 }
 
-//2.3
+//1.3 - третий участник
 function chooseThirdName() {
 
     findAndDeleteNecessaryPlayer(newNames, secondRoundName)
@@ -175,71 +173,8 @@ function chooseThirdName() {
     changeArrayNameBeforeNextStep()
 }
 
-
-//#1 Генерация случайных чисел
-
-//1.1
-// let quantityPlayers = 5
-
-//   Тут с нулём
-// function getRandomNumber (value){
-//     console.log(value);
-// const result = Math.floor(Math.random() * value)
-// console.log(result);
-// return result
-// }
-
-
-//1.2 от (включительно) и до (НЕ включительно)
-function getRandomArbitrary(min, max) {
-    return Math.floor(Math.random() * (max - min) + min)
-  }
-
-  // 2 - генерация случайных имен
-  function randomNames(names) { 
-    let random = Math.floor(Math.random() * ((names.length - 1) + 1));
-console.log(random);
-const res = names.find((el, ind) => ind === random)
-console.log(res);
-return res
-} 
-
-// 3 Дополнительно к пункту 2
-
-// 3.1 Дисаблим кнопку
-function disabledButton (uniqueThisBtn) {
-    uniqueThisBtn.disabled = true
-}
-
-//3.2 Открываем кнопку
-function enableBtn (uniqueBtn) {
-    uniqueBtn.disabled = false
-}
-
-//3.3 Добавляем доп класс на имя игрока
-function addOtherClassForPlayerName (valueName) {
-    valueName.classList.add('js-actions')
-}
-//3.4 убираем 3е имя из массива и добавляем его в другой для следующего шага - жеребъевки индивидуальных игр
-function changeArrayNameBeforeNextStep(){
-
-    findAndDeleteNecessaryPlayer(newNames, thirdRoundName)
-    
-    chosenNames.push(thirdRoundName)
-    console.log(chosenNames);
-   
-}
-//3.5 активный цвет 
-function activeTitleColor(valueTitle){
-    valueTitle.classList.add('js-actions3')
-}
-
-function inactiveTitleColor(valueTitle){
-    valueTitle.classList.add('js-actions4')
-}
-
-///////////////////////////////////////////
-//4. жеребъевка индивидуальных игр
+//2 - жеребъевка индивидуальных игр
+//2.1 - рандомно для одного из участников первой игры
 function choosePersonalScheludeForFistPlayer(){
     alert("Готовы?")
     firstNameForPS = randomNames(chosenNames)
@@ -262,7 +197,7 @@ function choosePersonalScheludeForFistPlayer(){
     inactiveTitleColor(refs.firstTitlePS)
     activeTitleColor(refs.secondTitlePS)
 }
-
+//2.2 - рандомно для второго и третего  участников первой игры
 function choosePSForSecAndThirdPlayers(){
     alert("Иииии )))")
     secondNameForPS = randomNames(chosenNames)
@@ -304,7 +239,7 @@ function choosePSForSecAndThirdPlayers(){
     activeTitleColor(refs.fifthTitlePS)
     
 }
-
+//2.3 - рандомно для 4го и 5го участников турнира
 function chosePSForFouAndFifPlayers(){
     alert("Иииии )))")
     fourthNameForPS = randomNames(newNames)
@@ -342,13 +277,79 @@ function chosePSForFouAndFifPlayers(){
 
     inactiveTitleColor(refs.fifthTitlePS)
 }
-//5 Дополгительно к пункту 4
+
+// ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ 
+//#3 Генерация случайных чисел - ПО ФАКТУ НУЖНА ТОЛЬКО --- 3.3 !!!!!
+
+//1.1
+// let quantityPlayers = 5
+
+//   Тут с нулём
+// function getRandomNumber (value){
+//     console.log(value);
+// const result = Math.floor(Math.random() * value)
+// console.log(result);
+// return result
+// }
+
+
+//3.2 от (включительно) и до (НЕ включительно) 
+function getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min) + min)
+  }
+
+  // 3.3 - генерация случайных имен
+  function randomNames(names) { 
+    let random = Math.floor(Math.random() * ((names.length - 1) + 1));
+console.log(random);
+const res = names.find((el, ind) => ind === random)
+console.log(res);
+return res
+} 
+
+// 4 Дополнительно к пункту 1
+
+// 4.1 Дисаблим кнопку
+function disabledButton (uniqueThisBtn) {
+    uniqueThisBtn.disabled = true
+}
+
+//4.2 Открываем кнопку
+function enableBtn (uniqueBtn) {
+    uniqueBtn.disabled = false
+}
+
+//4.3 Добавляем доп класс на имя игрока
+function addOtherClassForPlayerName (valueName) {
+    valueName.classList.add('js-actions')
+}
+//4.4 убираем 3е имя из массива и добавляем его в другой для следующего шага - жеребъевки индивидуальных игр
+function changeArrayNameBeforeNextStep(){
+
+    findAndDeleteNecessaryPlayer(newNames, thirdRoundName)
+    
+    chosenNames.push(thirdRoundName)
+    console.log(chosenNames);
+   
+}
+//4.5 активный цвет 
+function activeTitleColor(valueTitle){
+    valueTitle.classList.add('js-actions3')
+}
+//4.6 неактивный цвет
+function inactiveTitleColor(valueTitle){
+    valueTitle.classList.add('js-actions4')
+}
+
+///////////////////////////////////////////
+
+//5 Дополгительно к пункту 2
 //5.1 Доп класс
 function addAnotherClassForPlayerName (valueName) {
     valueName.classList.add('js-actions2')
 }
 
-//6 дополнительно к 2 и 4
+//6 дополнительно к 1 и 2
 //6.1 удаляем случайно выбранного игрока из нужного нам массива (для следующего рандомного выбора из оставшихся)
 function findAndDeleteNecessaryPlayer (necessaryArrayOfPlayers, playerName){
 
@@ -361,7 +362,8 @@ function findAndDeleteNecessaryPlayer (necessaryArrayOfPlayers, playerName){
 
 }
 
-// //7 пробую нотифлекс 
+// //7 пробую нотифлекс вместо алертов
+
 //  function tryNotiflixStopScript (value, name, thisFromChooseName){
 //     Notiflix.Report.warning(
 //         'ИТАК',
