@@ -362,7 +362,7 @@ function findAndDeleteNecessaryPlayer (necessaryArrayOfPlayers, playerName){
 
 }
 
-// //7 пробую нотифлекс вместо алертов
+// //7 пробую нотифлекс вместо алертов (сделал только для этапа 1.1 - далее по этим примерам + ф-я 6.1)
 
 //  function tryNotiflixStopScript (value, name, thisFromChooseName){
 //     Notiflix.Report.warning(
