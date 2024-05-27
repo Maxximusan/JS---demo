@@ -103,6 +103,29 @@ console.log(non.toFixed(2));
 const upgrateNon = +non.toFixed(2) // or Number(non.toFixed(2))
 console.log(upgrateNon === 0.3); // true
 
+// #11 проверка на тип
+const fre = non.toFixed(2)
+console.log(fre);
+// typeof(fre) or typeof fre
+console.log(typeof fre);
+
+
+// Методы Number
+const llk = 11
+const kkl = 11.5
+const jjk = '45'
+console.log(Number.isInteger(llk));
+console.log(Number.isInteger(kkl));
+
+
+const hhj = 5.1234567
+console.log(hhj.toPrecision(2)); //5.1  - string
+console.log(+hhj.toPrecision(4)); //5.123 - number
+const ggh = 0.00123
+console.log(ggh.toPrecision(2)); //0.0012
+console.log(ggh.toPrecision(1)); //0.001
+
+
 
 
 
