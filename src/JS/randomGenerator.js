@@ -115,7 +115,7 @@ alert(`${whoFirstPlayer}`)
 refs.valueName.textContent = firstRoundName
  addOtherClassForPlayerName(refs.valueName)
 
-   console.log(this);
+   console.log(this); // контекст в момент вызова
    console.log(refs.changeAction1);
    
    disabledButton(this)

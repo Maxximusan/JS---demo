@@ -1,7 +1,7 @@
 // #1 alert, promt, confirm
 
-alert( 'Ты' )
-alert( 'Заебал' )
+// alert( 'Ты' )
+// alert( 'Заебал' )
 
 // let age = prompt('Сколько тебе лет?', 10);
 // alert(`Тебе ${age} лет!`); 
@@ -124,6 +124,29 @@ console.log(+hhj.toPrecision(4)); //5.123 - number
 const ggh = 0.00123
 console.log(ggh.toPrecision(2)); //0.0012
 console.log(ggh.toPrecision(1)); //0.001
+
+
+function ffg (a,b,c) {
+    return Math.abs((a-b)*c)
+}
+console.log(ffg(50,30,2));
+
+function ddf(e){
+    
+    return Math.sqrt(e)
+}
+console.log(ddf(625));
+const vgvj = Math.E
+console.log(vgvj);
+console.dir(Number());
+
+const aas = [1,4,7,8, 9]
+console.log(aas.length - 1);
+console.log(aas[aas.length - 1] );
+console.log(aas.at(-1));
+
+console.dir(aas)
+
 
 
 
