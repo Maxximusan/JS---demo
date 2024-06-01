@@ -1,5 +1,9 @@
 {
-  "name": "y",
+ 
+ 
+ 
+
+  "name": "parcel-js-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/Maxximusan/JS---demo/issues"
   },
-  "homepage": "https://github.com/Maxximusan/JS---demo#readme",
+  "homepage": "https://maxximusan.github.io/JS---demo",
   "dependencies": {
     "joi": "^17.6.0",
     "notiflix": "^3.2.7"
