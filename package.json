@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/Maxximusan/JS---demo/issues"
   },
-  "homepage": "https://maxximusan.github.io/JS---demo",
+  "homepage": "https://Maxximusan.github.io/JS---demo/",
   "dependencies": {
     "joi": "^17.6.0",
     "notiflix": "^3.2.7"
