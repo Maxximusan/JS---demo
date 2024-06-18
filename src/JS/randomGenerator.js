@@ -42,7 +42,7 @@ const refs = {
     fifthTitlePS: document.querySelector('[data-active-color = "define-fifth-PS"]'),
 }
 
-refs.changeAction1.addEventListener('click', chooseName)
+refs.changeAction1.addEventListener('click', chooseName, {once: true})
 refs.changeAction2.addEventListener('click', chooseSecondName)
 refs.changeAction3.addEventListener('click', chooseThirdName)
 
