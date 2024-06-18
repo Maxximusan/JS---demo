@@ -24,6 +24,6 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
-    "posthtml-include": "^2.0.1"
+    "posthtml-modules": "^0.9.1"
   }
 }
