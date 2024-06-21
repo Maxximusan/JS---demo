@@ -1,2 +1,2 @@
 let o=[];for(let l=0;l<51;l+=1)o.push(Math.round(1e3*Math.random()));console.log(o),(o=>{console.log("Hi, i am start to doing test task"),console.log(o);let l=Math.max(...o),e=Math.min(...o);console.log(l),console.log(e),console.log(o.length);let t=[...o];console.log(t);let n=t.reduce((o,l)=>o+l,0);console.log(n),console.log(n/o.length);let s=[...o].sort((o,l)=>o-l);console.log(s);let g=s.length/2;console.log(g),console.log(Math.floor(s[g]))})([332,14,974,194,613,916,998,516,905,592,679,859,682,442,708,14,273,142,670,743,847,541,173,10,607,896,364,895,27,782,209,477,68,644,609,542,70,934,479,122,22,784,613,893,234,393,541,383,744,499]);
-//# sourceMappingURL=test3.91fdecdd.js.map
+//# sourceMappingURL=test3.63b88aeb.js.map
