@@ -42,13 +42,13 @@ const refs = {
     fifthTitlePS: document.querySelector('[data-active-color = "define-fifth-PS"]'),
 }
 
-refs.changeAction1.addEventListener('click', chooseName, {once: true})
-refs.changeAction2.addEventListener('click', chooseSecondName)
-refs.changeAction3.addEventListener('click', chooseThirdName)
+refs.changeAction1.addEventListener('click', chooseName, {once: true}) //третий параметр - снятие слушателя(очищение памяти)
+refs.changeAction2.addEventListener('click', chooseSecondName, {once: true})
+refs.changeAction3.addEventListener('click', chooseThirdName, {once: true})
 
-refs.changeAction4.addEventListener('click', choosePersonalScheludeForFistPlayer)
-refs.changeAction5.addEventListener('click', choosePSForSecAndThirdPlayers)
-refs.changeAction7.addEventListener('click', chosePSForFouAndFifPlayers)
+refs.changeAction4.addEventListener('click', choosePersonalScheludeForFistPlayer, {once: true})
+refs.changeAction5.addEventListener('click', choosePSForSecAndThirdPlayers, {once: true})
+refs.changeAction7.addEventListener('click', chosePSForFouAndFifPlayers, {once: true})
 
 //Future names of chosen players
 let firstRoundNumber = 0;

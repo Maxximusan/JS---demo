@@ -1,3 +1,5 @@
+// это из фильмотеки моя часть 
+
 import MovieApiService from "./fetchModule";
 import { onMarkupCards } from "./onMarkupCards";
 
