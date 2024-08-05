@@ -1,4 +1,3 @@
-
 import Notiflix from 'notiflix';
 console.log(Notiflix);
 
@@ -31,8 +30,7 @@ const refs = {
     // valueSeventhName: document.querySelector('#valueName7'),
     spanSevenththName: document.querySelector('#valueName71'),
     spanSecSevensthName: document.querySelector('#valueName72'),
-    spanEighthName: document.querySelector('#valueName81'),
-    spanSecEighththName: document.querySelector('#valueName82'),
+       
 
     firstTitleChoose: document.querySelector('[data-active-color = "define-first-player"]'),
     secondTitleChoose: document.querySelector('[data-active-color = "define-second-player"]'),
@@ -58,32 +56,25 @@ let secondRoundName = '';
 let thirdRoundName = '';
 
 //Arrays with names of players
-const names = ['Макс', 'Вован', 'Игорь', 'Лёша', 'Саня']
+const names = ['Макс', 'Вован', 'Лёша', 'Саня']
 const newNames = [...names]
   console.log(newNames);
 
 const chosenNames = []
 
-//Main personal scheludes
-const firstMPS = '1, 2, 4'
-const secondMPS = '1, 3, 4'
-const thirdMPS = '1, 3, 5'
-const fourthMPS = '2, 3, 5'
-const fifthMPS = '2, 4, 5'
-
-//Alternative personal scheludes
+//scheludes
 const altFirstMPS = '1, 2, 3'
-const altSecondMPS = '1, 2, 5'
-const altThirdndMPS = '1, 4, 5'
+const secondMPS = '1, 3, 4'
+const thirdMPS = '1, 2, 4'
 const altFourthMPS = '2, 3, 4'
-const altFifthMPS = '3, 4, 5'
+
 
 //players for personal schelude
 let firstNameForPS
 let secondNameForPS
 let thirdNameForPS
 let fourthNameForPS
-let fifthNameForPS
+
 
 
 // названия для Алертов и Нотифлекса
@@ -180,10 +171,7 @@ function choosePersonalScheludeForFistPlayer(){
     firstNameForPS = randomNames(chosenNames)
     refs.spanFourthName.textContent = `${firstNameForPS}`
 
-    //основное индивидуальное рассписание
-    // refs.spanSecFourthName.textContent = `${firstMPS}`
-
-    //альтернативное индивидуальное рассписание
+    
     refs.spanSecFourthName.textContent = `${altFirstMPS}`
    
     findAndDeleteNecessaryPlayer(chosenNames, firstNameForPS)
@@ -203,11 +191,8 @@ function choosePSForSecAndThirdPlayers(){
     secondNameForPS = randomNames(chosenNames)
     refs.spanFifthName.textContent = `${secondNameForPS}`
 
-    //основное индивидуальное рассписание
-    // refs.spanSecFifthName.textContent = `${secondMPS}`
-    
-    //альтернативное индивидуальное рассписание
-    refs.spanSecFifthName.textContent = `${altSecondMPS}`
+  
+    refs.spanSecFifthName.textContent = `${secondMPS}`
     
 
     findAndDeleteNecessaryPlayer(chosenNames, secondNameForPS)
@@ -222,12 +207,10 @@ function choosePSForSecAndThirdPlayers(){
 
     refs.spanSixthName.textContent = `${thirdNameForPS}`
 
-    //основное индивидуальное рассписание
-    // spanSecSixththName.textContent = `${thirdMPS}`
+ 
+    refs.spanSecSixththName.textContent = `${thirdMPS}`
 
-    //альтернативное индивидуальное рассписание
-    refs.spanSecSixththName.textContent = `${altThirdndMPS}`
-    
+   
     
     addAnotherClassForPlayerName(refs.spanSixthName)
     addAnotherClassForPlayerName(refs.spanSecSixththName)
@@ -239,7 +222,7 @@ function choosePSForSecAndThirdPlayers(){
     activeTitleColor(refs.fifthTitlePS)
     
 }
-//2.3 - рандомно для 4го и 5го участников турнира
+//2.3 - рандомно для 4го  участника турнира
 function chosePSForFouAndFifPlayers(){
     alert("Иииии )))")
     fourthNameForPS = randomNames(newNames)
@@ -258,20 +241,10 @@ function chosePSForFouAndFifPlayers(){
 
     console.log(fourthNameForPS);
    
-    fifthNameForPS = randomNames(newNames)
-    console.log(fifthNameForPS);
-
-    refs.spanEighthName.textContent = `${fifthNameForPS}`
-
-    //основное индивидуальное рассписание
-    // refs.spanSecEighththName.textContent = `${fifthMPS}`
-
-     //альтернативное индивидуальное рассписание
-     refs.spanSecEighththName.textContent = `${altFifthMPS}`
+    
 
     
-    addAnotherClassForPlayerName(refs.spanEighthName)
-    addAnotherClassForPlayerName(refs.spanSecEighththName)
+    
 
     disabledButton(this)
 
@@ -388,11 +361,4 @@ function findAndDeleteNecessaryPlayer (necessaryArrayOfPlayers, playerName){
 //    activeTitleColor(refs.secondTitleChoose)
 // }
 
-/* Жеребьевка с 6го раунда ??????????????????
-нужно написать ф-ю в которую параметрами передастся результат другой ??? 
-где уже определены сыграные уникальные игры , соответственно выборка из оставшихся .
-1. определяем случайно первого участника
-2. определяем 2го участника случайно
-2.1 если с ним уже 2жды встречался - 3й участник автоматически ясен! (нужна ли мне вообще тогда такая ф-я ?????)
-или
-2.2 если с ним пересекался 1 раз - тогда выборка 3го участника случайным образом из 2х варимантов*/
+
