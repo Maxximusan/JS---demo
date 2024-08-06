@@ -79,8 +79,8 @@ let fourthNameForPS
 
 // названия для Алертов и Нотифлекса
 let whoFirstPlayer = 'Кто же будет первым участником в первой игре турнира?'
-
-
+let whoSecondPlayer = 'Кто же будет вашим первым соперником?'
+let whoThirdPlayer = 'Кто же составит вам компанию?'
 //ОСНОВЫНЕ ФУНКЦИИ 
 // 1- Жеребъевка участников первой игры
 //1.1 - первый участник
@@ -94,26 +94,34 @@ firstRoundNumber = getRandomArbitrary(1,6)
  refs.valueNum.textContent = firstRoundNumber
    
   
-alert(`${whoFirstPlayer}`)
+// alert(`${whoFirstPlayer}`)
 
 
   firstRoundName = randomNames(names)
  console.log(firstRoundName);
 
- //это фннкция для использовани Notiflix
-//  tryNotiflixStopScript(whoFirstPlayer, firstRoundName, this)
+//  это фннкция для использовани Notiflix
+ tryNotiflixStopScript(
+    whoFirstPlayer, 
+    firstRoundName, 
+    this, 
+    refs.valueName, 
+    refs.changeAction2, 
+    refs.firstTitleChoose, 
+    refs.secondTitleChoose 
+)
 
-refs.valueName.textContent = firstRoundName
- addOtherClassForPlayerName(refs.valueName)
+// refs.valueName.textContent = firstRoundName
+//  addOtherClassForPlayerName(refs.valueName)
 
-   console.log(this); // контекст в момент вызова
-   console.log(refs.changeAction1);
+//    console.log(this); // контекст в момент вызова
+//    console.log(refs.changeAction1);
    
-   disabledButton(this)
-   enableBtn(refs.changeAction2)
+//    disabledButton(this)
+//    enableBtn(refs.changeAction2)
 
-   inactiveTitleColor(refs.firstTitleChoose)
-   activeTitleColor(refs.secondTitleChoose)
+//    inactiveTitleColor(refs.firstTitleChoose)
+//    activeTitleColor(refs.secondTitleChoose)
    
 }
 
@@ -126,18 +134,27 @@ function chooseSecondName(){
     console.log(chosenNames);
    
     
-    alert(`${firstRoundName}, кто же будет вашим первым соперником?`)
+    // alert(`${firstRoundName}, кто же будет вашим первым соперником?`)
     secondRoundName = randomNames(newNames)
     console.log(secondRoundName );
-    refs.valueSecondName.textContent = secondRoundName 
 
-    addOtherClassForPlayerName(refs.valueSecondName)
+    tryNotiflixStopScript(
+        whoSecondPlayer, 
+        secondRoundName, 
+        this, 
+        refs.valueSecondName, 
+        refs.changeAction3, 
+        refs.secondTitleChoose, 
+        refs.thirdTitleChoose )
+    // refs.valueSecondName.textContent = secondRoundName 
+
+    // addOtherClassForPlayerName(refs.valueSecondName)
    
-    disabledButton(this)
-    enableBtn(refs.changeAction3)
+    // disabledButton(this)
+    // enableBtn(refs.changeAction3)
 
-    inactiveTitleColor(refs.secondTitleChoose)
-    activeTitleColor(refs.thirdTitleChoose)
+    // inactiveTitleColor(refs.secondTitleChoose)
+    // activeTitleColor(refs.thirdTitleChoose)
 }
 
 //1.3 - третий участник
@@ -152,6 +169,8 @@ function chooseThirdName() {
     
     thirdRoundName = randomNames(newNames)
     console.log(thirdRoundName);
+
+
     refs.valueThirdName.textContent = thirdRoundName
 
     addOtherClassForPlayerName(refs.valueThirdName)
@@ -337,28 +356,28 @@ function findAndDeleteNecessaryPlayer (necessaryArrayOfPlayers, playerName){
 
 // //7 пробую нотифлекс вместо алертов (сделал только для этапа 1.1 - далее по этим примерам + ф-я 6.1)
 
-//  function tryNotiflixStopScript (value, name, thisFromChooseName){
-//     Notiflix.Report.warning(
-//         'ИТАК',
-//         `${value}`,
-//          'Смотрим', () => {
-//             nextStep(name, thisFromChooseName)
-//          }
-//         );
+ function tryNotiflixStopScript (value, name, thisFromChooseName, playerName, changeAction, prevTitle, nextTtile){
+    Notiflix.Report.warning(
+        'ИТАК',
+        `${value}`,
+         'Смотрим', () => {
+            nextStep(name, thisFromChooseName, playerName, changeAction, prevTitle, nextTtile)
+         }
+        );
        
-// }
+}
 // // 7.1
-// function nextStep (name, thisFromChooseName) {
-//     refs.valueName.textContent = name
-//     addOtherClassForPlayerName(refs.valueName)
+function nextStep (name, thisFromChooseName, playerName, changeAction, prevTitle, nextTtile) {
+    playerName.textContent = name
+    addOtherClassForPlayerName(playerName)
 
-//    console.log(thisFromChooseName);
+   console.log(thisFromChooseName);
    
-//    disabledButton(thisFromChooseName)
-//    enableBtn(refs.changeAction2)
+   disabledButton(thisFromChooseName)
+   enableBtn(changeAction)
 
-//    inactiveTitleColor(refs.firstTitleChoose)
-//    activeTitleColor(refs.secondTitleChoose)
-// }
+   inactiveTitleColor(prevTitle)
+   activeTitleColor(nextTtile)
+}
 
 
