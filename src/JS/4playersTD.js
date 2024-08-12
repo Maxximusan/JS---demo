@@ -81,6 +81,8 @@ let fourthNameForPS
 let whoFirstPlayer = 'Кто же будет первым участником в первой игре турнира?'
 let whoSecondPlayer = 'Кто же будет вашим первым соперником?'
 let whoThirdPlayer = 'Кто же составит вам компанию?'
+
+
 //ОСНОВЫНЕ ФУНКЦИИ 
 // 1- Жеребъевка участников первой игры
 //1.1 - первый участник
@@ -100,7 +102,8 @@ firstRoundNumber = getRandomArbitrary(1,6)
   firstRoundName = randomNames(names)
  console.log(firstRoundName);
 
-//  это фннкция для использовани Notiflix
+ const firstMessage = 'Итак!'
+//  это функция для использовани Notiflix
  tryNotiflixStopScript(
     whoFirstPlayer, 
     firstRoundName, 
@@ -108,7 +111,8 @@ firstRoundNumber = getRandomArbitrary(1,6)
     refs.valueName, 
     refs.changeAction2, 
     refs.firstTitleChoose, 
-    refs.secondTitleChoose 
+    refs.secondTitleChoose,
+    firstMessage
 )
 
 // refs.valueName.textContent = firstRoundName
@@ -138,6 +142,8 @@ function chooseSecondName(){
     secondRoundName = randomNames(newNames)
     console.log(secondRoundName );
 
+    const secondMessage = `${firstRoundName}`
+
     tryNotiflixStopScript(
         whoSecondPlayer, 
         secondRoundName, 
@@ -145,7 +151,9 @@ function chooseSecondName(){
         refs.valueSecondName, 
         refs.changeAction3, 
         refs.secondTitleChoose, 
-        refs.thirdTitleChoose )
+        refs.thirdTitleChoose,
+        secondMessage
+     )
     // refs.valueSecondName.textContent = secondRoundName 
 
     // addOtherClassForPlayerName(refs.valueSecondName)
@@ -165,20 +173,31 @@ function chooseThirdName() {
     chosenNames.push(secondRoundName)
     console.log(chosenNames);
 
-    alert(`${firstRoundName} и ${secondRoundName}, кто же составит вам компанию?`)
+    // alert(`${firstRoundName} и ${secondRoundName}, кто же составит вам компанию?`)
     
     thirdRoundName = randomNames(newNames)
     console.log(thirdRoundName);
 
+    const thirdMessage = `${firstRoundName} и ${secondRoundName}`
+    tryNotiflixStopScript(
+        whoThirdPlayer , 
+        thirdRoundName, 
+        this, 
+        refs.valueThirdName, 
+        refs.changeAction4, 
+        refs.thirdTitleChoose, 
+        refs.firstTitlePS,
+        thirdMessage
+     )
 
-    refs.valueThirdName.textContent = thirdRoundName
+    // refs.valueThirdName.textContent = thirdRoundName
 
-    addOtherClassForPlayerName(refs.valueThirdName)
-    disabledButton(this)
-    enableBtn(refs.changeAction4)
+    // addOtherClassForPlayerName(refs.valueThirdName)
+    // disabledButton(this)
+    // enableBtn(refs.changeAction4)
 
-    inactiveTitleColor(refs.thirdTitleChoose)
-    activeTitleColor(refs.firstTitlePS)
+    // inactiveTitleColor(refs.thirdTitleChoose)
+    // activeTitleColor(refs.firstTitlePS)
     
     changeArrayNameBeforeNextStep()
 }
@@ -188,6 +207,9 @@ function chooseThirdName() {
 function choosePersonalScheludeForFistPlayer(){
     alert("Готовы?")
     firstNameForPS = randomNames(chosenNames)
+
+    
+
     refs.spanFourthName.textContent = `${firstNameForPS}`
 
     
@@ -356,9 +378,9 @@ function findAndDeleteNecessaryPlayer (necessaryArrayOfPlayers, playerName){
 
 // //7 пробую нотифлекс вместо алертов (сделал только для этапа 1.1 - далее по этим примерам + ф-я 6.1)
 
- function tryNotiflixStopScript (value, name, thisFromChooseName, playerName, changeAction, prevTitle, nextTtile){
+ function tryNotiflixStopScript (value, name, thisFromChooseName, playerName, changeAction, prevTitle, nextTtile, message){
     Notiflix.Report.warning(
-        'ИТАК',
+        `${message}`,
         `${value}`,
          'Смотрим', () => {
             nextStep(name, thisFromChooseName, playerName, changeAction, prevTitle, nextTtile)
@@ -380,4 +402,19 @@ function nextStep (name, thisFromChooseName, playerName, changeAction, prevTitle
    activeTitleColor(nextTtile)
 }
 
+// // 7.2 еще один нотифлекс, для расписаний и для того чтобы попробовать уменьшить код предыдущих т.к. мне просто тормознуть нужно было по типу алерта, а не нагромождать так всё.
+// function NotiflexSecondAttempt (message, name, playerName, schedule){
 
+//     Notiflix.Report.warning(
+//         `${message}`,
+        
+//          'Смотрим', () => {
+//             nextStepSecondAttempt(name, playerName, schedule)
+//          }
+//         );
+// }
+
+// // 7.3
+// function nextStepSecondAttempt(name, playerName, schedule){
+//     playerName.textContent = name
+// }

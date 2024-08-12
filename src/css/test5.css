@@ -1,77 +1,80 @@
-h1,h2,h3,h4,h5,h6,p {
-    margin: 0
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
 }
-.main{
-    /* background-color: #99f692; */
-    background-color: #267e27;
+.main {
+  /* background-color: #99f692; */
+  background-color: #267e27;
 }
 .hidden {
-    display: none;
+  display: none;
 }
 
-.mt-container{
-    min-height: 640px;
-    background-image: url(../images/backgr.jpg);
-    background-size: cover;
-    margin-bottom: 80px;
+.mt-container {
+  min-height: 640px;
+  background-image: url(../images/backgr.jpg);
+  background-size: cover;
+  margin-bottom: 80px;
 }
-.main-title{
-    font-size: 41px; 
-    /* margin-bottom: 16px; */
-    color: #fff507;
-    width: 508px;
-    text-align: center;
-    margin-left: 445px;
-    /* margin-right: auto; */
-    /* margin-top: 200px; */
-    padding-top: 237px;
+.main-title {
+  font-size: 41px;
+  /* margin-bottom: 16px; */
+  color: #fff507;
+  width: 508px;
+  text-align: center;
+  margin-left: 445px;
+  /* margin-right: auto; */
+  /* margin-top: 200px; */
+  padding-top: 237px;
 
-    animation-name: changeColorAlt;
+  animation-name: changeColorAlt;
   animation-duration: 10000ms;
   animation-delay: 1000ms;
   animation-iteration-count: infinite;
 }
-.choosePlayerContainer{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 80px;
-    
+.choosePlayerContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 80px;
 }
 
-
-
-.pictures{
-background-image: url(../images/images-4.jpg);
-background-size: cover;
-width:225px;
-height:225px;
-margin-bottom: 80px;
-border-radius: 33px;
-margin-left: 105px;
-/* Возможно правильно позишн релатив ставить тут, тогда ниже топ 0 у обоих, лефт 450 и 900 примерно */
+.pictures {
+  background-image: url(../images/images-4.jpg);
+  background-size: cover;
+  width: 225px;
+  height: 225px;
+  margin-bottom: 80px;
+  border-radius: 33px;
+  margin-left: 105px;
+  /* Возможно правильно позишн релатив ставить тут, тогда ниже топ 0 у обоих, лефт 450 и 900 примерно */
 }
 
-.pictures::before{
-    content: "";
-    width:225px;
-    height:225px;
-    position: absolute;
-    left: 1003px;
-    top: 1013px;
-    background-size: cover;
-    background-image: url(../images/burako.png);
-    border-radius: 33px
+.pictures::before {
+  content: "";
+  width: 225px;
+  height: 225px;
+  position: absolute;
+  left: 1003px;
+  top: 1013px;
+  background-size: cover;
+  background-image: url(../images/burako.png);
+  border-radius: 33px;
 }
 
-.pictures::after{
-    content: "";
-    width:225px;
-    height:225px;
-    position: absolute;
-    left: 570px;
-    top: 1013px;
-    background-size: cover;
-    background-image: url(../images/deberc.png);
+.pictures::after {
+  content: "";
+  width: 225px;
+  height: 225px;
+  position: absolute;
+  left: 570px;
+  top: 1013px;
+  background-size: cover;
+  background-image: url(../images/deberc.png);
 }
 /* .choosePlayerContainer::after{
     
@@ -85,229 +88,210 @@ margin-left: 105px;
         background-image: url(../images/images-4.jpg);
       
 } */
-.title{
-    margin-bottom: 30px;
-    font-size: 27px;
-    
+.title {
+  margin-bottom: 30px;
+  font-size: 27px;
 }
-.altTitle{
-color: #ff9494;
-}
-
-.chooseScheduleContainer{
-    display: flex;
-    gap: 60px;
-    flex-wrap: wrap;
-    flex-direction: column;
-    padding-bottom: 80px;
+.altTitle {
+  color: #ff9494;
 }
 
-.playerContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   
-}
-.appx{
-    min-width: 387px;
+.chooseScheduleContainer {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding-bottom: 80px;
 }
 
-.amh{
+.playerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.appx {
+  min-width: 387px;
+}
+
+.amh {
   min-height: 180px;
 }
-.amh2{
+.amh2 {
   min-height: 244px;
 }
 /* .playerContainer:hover{
 color: #ff9494;
 } */
 
-.btn{
-    width: 120px;
-    height: 35px;
-   background-color: rgb(0, 255, 157);
-    border:none;
-    cursor: pointer;
-    margin-bottom: 20px;
-    font-size: 18px;
-    border-radius: 8px;
+.btn {
+  width: 120px;
+  height: 35px;
+  background-color: rgb(0, 255, 157);
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 18px;
+  border-radius: 8px;
 }
 
-.btn:disabled{
-    background-color: rgb(103, 131, 120);
+.btn:disabled {
+  background-color: rgb(103, 131, 120);
   cursor: not-allowed;
 }
 
-.player-name{
-    /* font-size: 20px; */
-     font-size: 27px;
-    min-height: 53px;
-    margin-bottom: 20px;
-    align-content: center;
+.player-name {
+  /* font-size: 20px; */
+  font-size: 27px;
+  min-height: 53px;
+  margin-bottom: 20px;
+  align-content: center;
 }
-.ps-description{
-    /* font-size: 20px; */
-    font-size: 27px;
-    
-    margin-bottom: 20px;
-    min-height: 44px
-}
+.ps-description {
+  /* font-size: 20px; */
+  font-size: 27px;
 
-.footer{
-    background-color: #aade90;
-    /* #50a05a */
+  margin-bottom: 20px;
+  min-height: 44px;
 }
 
-.last-tittle{
-    font-size: 48px;
-    color:navy;
-    padding: 32px;
-    text-align: center;
+.uniqueNumberList {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  min-height: 45px;
+}
+.schreludeItem {
+  font-size: 32px;
+  color: #0ed2e9;
 }
 
-.picCont{
-    display: flex;
-    justify-content: center;
+.itemColor {
+  color: #000000;
 }
 
-.js-actions{
-    /* font-size: 36px; */
-    font-size: 46px;
-    color:aqua;
+.footer {
+  background-color: #aade90;
+  /* #50a05a */
 }
 
-.js-actions2{
-    /* font-size: 24px; */
-    font-size: 38px;
-    font-weight: 700;
-    /* color: crimson; */
-    /* color: #ff8181; */
-    color: #caff00;
+.last-tittle {
+  font-size: 48px;
+  color: navy;
+  padding: 32px;
+  text-align: center;
 }
 
-.js-actions3{
-    
-    color: #ff9494;
+.picCont {
+  display: flex;
+  justify-content: center;
 }
 
-.js-actions4{
-    
-    color: black;
+.js-actions {
+  /* font-size: 36px; */
+  font-size: 46px;
+  color: aqua;
 }
 
+.js-actions2 {
+  /* font-size: 24px; */
+  font-size: 38px;
+  font-weight: 700;
+  /* color: crimson; */
+  /* color: #ff8181; */
+  color: #caff00;
+}
 
+.js-actions3 {
+  color: #ff9494;
+}
+
+.js-actions4 {
+  color: black;
+}
 
 @keyframes changeColorMain {
-    0% {
-      color: yellow;
-     
-    }
-    30% {
-      color: #f83016;
-      
-    }
-    50% {
-      color: #2cad12;
-           
-    }
-    54% {
-      color: #36f8e8;
-      
-    }
-    57% {
-      color: #2cad12;
-           
-    }
-    60% {
-      color: #36f8e8;
-      
-    }
-    63% {
-      color: #2cad12;
-            
-    }
-    67% {
-      color: #36f8e8;
-           
-    }
-    70% {
-      color: #2cad12;
-            
-    }
-    73% {
-      color: #36f8e8;
-           
-    }
-    77% {
-      color: #2cad12;
-            
-    }
-    80% {
-      color: #36f8e8;
-           
-    }
-
-    100% {
-      color: #ffff00;
-     
-    }
+  0% {
+    color: yellow;
+  }
+  30% {
+    color: #f83016;
+  }
+  50% {
+    color: #2cad12;
+  }
+  54% {
+    color: #36f8e8;
+  }
+  57% {
+    color: #2cad12;
+  }
+  60% {
+    color: #36f8e8;
+  }
+  63% {
+    color: #2cad12;
+  }
+  67% {
+    color: #36f8e8;
+  }
+  70% {
+    color: #2cad12;
+  }
+  73% {
+    color: #36f8e8;
+  }
+  77% {
+    color: #2cad12;
+  }
+  80% {
+    color: #36f8e8;
   }
 
-
-  @keyframes changeColorAlt {
-    0% {
-     
-      color: #2cad12;
-    }
-    30% {
-     
-      color: #36f8e8;
-      
-    }
-    50% {
-      color: yellow;
-           
-    }
-    54% {
-      color: #f83016;
-      
-    }
-    57% {
-      color: yellow;
-           
-    }
-    60% {
-      color: #f83016;
-      
-    }
-    63% {
-      color: yellow;
-            
-    }
-    67% {
-      color: #f83016;
-           
-    }
-    70% {
-      color: yellow;
-            
-    }
-    73% {
-      color: #f83016;
-           
-    }
-    77% {
-      color: yellow;
-            
-    }
-    80% {
-      color: #f83016;
-           
-    }
-
-    100% {
-      
-      color: #2cad12;
-    }
+  100% {
+    color: #ffff00;
   }
+}
+
+@keyframes changeColorAlt {
+  0% {
+    color: #2cad12;
+  }
+  30% {
+    color: #36f8e8;
+  }
+  50% {
+    color: yellow;
+  }
+  54% {
+    color: #f83016;
+  }
+  57% {
+    color: yellow;
+  }
+  60% {
+    color: #f83016;
+  }
+  63% {
+    color: yellow;
+  }
+  67% {
+    color: #f83016;
+  }
+  70% {
+    color: yellow;
+  }
+  73% {
+    color: #f83016;
+  }
+  77% {
+    color: yellow;
+  }
+  80% {
+    color: #f83016;
+  }
+
+  100% {
+    color: #2cad12;
+  }
+}
