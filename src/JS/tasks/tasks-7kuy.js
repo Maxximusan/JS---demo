@@ -90,7 +90,7 @@ const longest = (s1, s2) => [...new Set(s1 + s2)].sort().join("");
 // isIsogram "aba" = false
 function isIsogram(str) {
   //   Set.prototype.size
-  // Возвращает количество значений в Setобъекте (по типу length).
+  // Возвращает количество значений в Set-объекте (по типу length).
   const set = new Set(str.toUpperCase()).size;
   // console.log(str.length === set);
   if (str.length === set) {

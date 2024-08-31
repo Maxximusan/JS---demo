@@ -507,11 +507,15 @@ console.log(promise);
 // );
 // 2я запись (тоже самое) - promise.then(yes, no)
 // 3я запись со вторым then и catch и finally
-promise.then(yes).then(x => console.log(x)).catch(no).finally(() => console.log('i will be there everytime'));
+promise
+  .then(yes)
+  .then((x) => console.log(x))
+  .catch(no)
+  .finally(() => console.log("i will be there everytime"));
 
 function yes(result) {
   console.log(`✅ ${result}`);
-  return 'VIKINGS'
+  return "VIKINGS";
 }
 function no(error) {
   console.log(`❌ ${error}`);
@@ -527,7 +531,6 @@ console.log(eeee); // теперь у нас не пустой объект
 console.log(eeee[wwww]); // это идентичная запись как и обращение через точку к свойству. (но мы не можем так в данном случае -- eeee.'1-2-3-4' -- это не одним словом (сложная) и не покажет через точку)
 //А если поменять местами ssss и wwww -- мы сможем написать через сточку eeee.ssss и увидеть в консоле !!! Квадратные скобки дают намного больше возможностей, чем запись через точку.
 console.log(ssss);
-
 
 //Задача из кодварс
 function greet(language) {
@@ -836,7 +839,6 @@ function User(name, age, prof, gender, isAdmin) {
 const zzz = new User("Lucy", 23, "slut", "female", false);
 console.log(zzz);
 
-
 // craking js 4.2 (sort, slice, flat)
 // let fff = [1, 1000, 5, 78, 24, 503, 300, 68];
 
@@ -853,44 +855,43 @@ console.log(zzz);
 // console.log(newFff.sort(compareNumbers));
 // console.log(newFff.sort(compareNumbersReverse));
 
-let wpeokf = 'this is fucking good '
-let hfsb = Array.from(wpeokf)
+let wpeokf = "this is fucking good ";
+let hfsb = Array.from(wpeokf);
 console.log(hfsb);
-console.log(hfsb.slice(0,3));
-console.log(hfsb.slice(1,4));
-console.log(hfsb.slice(5,10));
+console.log(hfsb.slice(0, 3));
+console.log(hfsb.slice(1, 4));
+console.log(hfsb.slice(5, 10));
 
-let cbh = [1,2,3, [4,5,[6,7,[8,9]]]]
+let cbh = [1, 2, 3, [4, 5, [6, 7, [8, 9]]]];
 console.log(cbh.flat());
 console.log(cbh.flat(2));
 console.log(cbh.flat(3));
 
-
-const animalsAgain = ['cat', 'dog', 'fish', 'bird']
-const iteratorAnimals = animalsAgain.entries()
+const animalsAgain = ["cat", "dog", "fish", "bird"];
+const iteratorAnimals = animalsAgain.entries();
 console.log(iteratorAnimals.next());
 console.log(iteratorAnimals.next());
 console.log(iteratorAnimals.next());
 console.log(iteratorAnimals.next());
 console.log(iteratorAnimals.next());
-
-
 
 // задача для собеседования с сеттаймаутом - что сдесь не так ?
-for(var i = 0; i < 10; i++) {
-  setTimeout(() => console.log(i), 0)
+for (var i = 0; i < 10; i++) {
+  setTimeout(() => console.log(i), 0);
 }
 // ответ: сеттайм аут выполняется вконце, когда значение i - уже 10 !!!
 
 // Решение:
 // Вариант 1 (заменить var (у которого функциональная область видимости - и он создается вне цикла for) на let (у которого блочная область видимости - и он создается внутри цикла for))
-for (let i = 0; i < 10; i+= 1){
+for (let i = 0; i < 10; i += 1) {
   //sync !!!!!
   setTimeout(
     //async !!!!!
     () => {
-console.log(i);
-  }, 0)
+      console.log(i);
+    },
+    0
+  );
 }
 // Вариант 2 (таким образом на момент вызова колбека ему передастся актуальное значение i - на момент запуска сеттаймаута. a - это второй и до десятого аргумент)
 // for(var i = 0; i < 10; i++) {
@@ -906,61 +907,58 @@ console.log(i);
 // func()
 // }
 
-
-
 // Тесты кахута - то что забыл или не заметил проверяю
 // 1 нюанс что выводится если передать иили не передать user (по сути правила для || и &&)
-const user = { name: 'Lucy'}
+const user = { name: "Lucy" };
 
 const myFunc = (user) => {
-const currentUser = user || {name: 'Coreena'}
-const userName = user && user.name
-console.log(currentUser.name, userName);
-}
+  const currentUser = user || { name: "Coreena" };
+  const userName = user && user.name;
+  console.log(currentUser.name, userName);
+};
 
-myFunc()
+myFunc();
 // myFunc(user)
 
 // 2 привод к булеан значению 2 варианта
-const xc = !!-1
+const xc = !!-1;
 console.log(xc);
-const zxc = new Boolean(-1)
+const zxc = new Boolean(-1);
 console.log(zxc);
 
 // 3 не знал что тут 1 получается
-const pizdec = true + false
-const pizdec1 = true - false
+const pizdec = true + false;
+const pizdec1 = true - false;
 console.log(pizdec);
 console.log(pizdec1);
 
 // 4 вывод всех аргументов
-function aeto (a,b,c){
-  var aa = Array.from(arguments).slice(item => item)
-  var bb = [...arguments].filter(item => item)
+function aeto(a, b, c) {
+  var aa = Array.from(arguments).slice((item) => item);
+  var bb = [...arguments].filter((item) => item);
 
   console.log(aa);
   console.log(bb);
-
 }
 
-aeto('Adonis', 'Boris', 'Coco')
+aeto("Adonis", "Boris", "Coco");
 
 //5
 var group = {
-  person: 'MotherFucker'
-}
+  person: "MotherFucker",
+};
 
-function whatAfuck(b){
+function whatAfuck(b) {
   console.log(b);
-  var newGroup = b
-  newGroup.person='Bill'
+  var newGroup = b;
+  newGroup.person = "Bill";
 
-  if(b){
-    newGroup.person = 'John'
+  if (b) {
+    newGroup.person = "John";
   }
-  return newGroup
+  return newGroup;
 }
-var neewPerson = whatAfuck(group).person
+var neewPerson = whatAfuck(group).person;
 // или убрать .person со строки выше и записать в консоль.лог ниже
 console.log(neewPerson);
 console.log(group.person);
@@ -968,18 +966,38 @@ console.log(group.person);
 //6 проверка что покажет bind, apply, call (bind как на уроке - а вот call и apply НЕТ и я ранее такое видел уже)
 var a11 = {
   b: 1,
-  getContext: function() { console.log(this) }
-}
-var d11 = {prop: 'here'}
-var g11 = a11.getContext.bind(d11)
-let b11 = a11.getContext.apply(d11)
+  getContext: function () {
+    console.log(this);
+  },
+};
+var d11 = { prop: "here" };
+var g11 = a11.getContext.bind(d11);
+let b11 = a11.getContext.apply(d11);
 console.log(g11, b11);
 
 //7 - проверка как я создал метод для ddd
-var ddd = { b:3 }
+var ddd = { b: 3 };
 console.log(ddd);
-ddd.getThis = a11.getContext
+ddd.getThis = a11.getContext;
 console.log(ddd);
-ddd.getThis()
+ddd.getThis();
 
+// const popo = "FUCK";
+// const opop = "fuck";
+// const iop = "fUCk";
+
+// function dede(variant) {
+//   const changeVariant = variant.split("");
+//   console.log(changeVariant);
+//   const result = changeVariant
+//     .map((el) =>
+//       el === el.toLowerCase() ? el.toUpperCase() : el.toLowerCase()
+//     )
+//     .join("");
+//   console.log(result);
+//   return result;
+// }
+// dede(popo);
+// dede(opop);
+// dede(iop);
 

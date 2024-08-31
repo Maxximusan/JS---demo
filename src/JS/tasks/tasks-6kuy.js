@@ -103,3 +103,28 @@ function queueTime(customers, n) {
   // The waitTime of the till with the heaviest load represents the total time taken
   return Math.max(...tills);
 }
+
+// #4
+// Напишите функцию sum, которая бы работала следующим образом:
+
+// sum(1)(2) == 3; // 1 + 2
+// sum(1)(2)(3) == 6; // 1 + 2 + 3
+// sum(5)(-1)(2) == 6
+// sum(6)(-1)(-2)(-3) == 0
+// sum(0)(1)(2)(3)(4)(5) == 15
+function sum(a) {
+  let currentSum = a;
+
+  function f(b) {
+    currentSum += b;
+    return f;
+  }
+
+  f.toString = function () {
+    return currentSum;
+  };
+
+  return f;
+}
+
+// описание - тут --  https://learn.javascript.ru/task/sum-many-brackets
