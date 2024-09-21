@@ -1001,4 +1001,39 @@ ddd.getThis();
 // dede(opop);
 // dede(iop);
 
+// замыкание
+const kjkk = (someCount) => {
+  let count = someCount;
 
+  const plus = (someNumber) => {
+    const result = count + someNumber;
+    console.log(result);
+  };
+
+  const minus = (someNumber) => {
+    const result = count - someNumber;
+    console.log(result);
+  };
+
+  const getCurrentCount = () => {
+    console.log(`current count is ${count}`);
+  };
+
+  return { plus, minus, getCurrentCount };
+};
+
+const counter1 = kjkk(100);
+const counter2 = kjkk(200);
+
+counter1.getCurrentCount();
+counter1.plus(3);
+counter1.minus(20);
+counter2.getCurrentCount();
+counter2.plus(44);
+counter2.minus(79);
+
+const strelka = () => console.log("FUCK");
+
+function funcc() {}
+console.dir(strelka);
+console.dir(funcc);
