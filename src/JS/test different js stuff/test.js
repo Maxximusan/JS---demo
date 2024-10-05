@@ -1037,3 +1037,9 @@ const strelka = () => console.log("FUCK");
 function funcc() {}
 console.dir(strelka);
 console.dir(funcc);
+
+console.log(a(15));
+
+function a(num) {
+  const result = num + 2 * 2;
+}

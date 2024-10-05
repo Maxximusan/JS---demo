@@ -170,6 +170,15 @@ color: #ff9494;
   color: #000000;
 }
 
+.chooseOptionalGames {
+  background-color: #789a50;
+  width: 1233px;
+  height: 500px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .footer {
   background-color: #aade90;
   /* #50a05a */
