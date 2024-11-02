@@ -14,12 +14,14 @@ p {
 .hidden {
   display: none;
 }
-
+.shown {
+  display: block
+}
 .mt-container {
   min-height: 640px;
   background-image: url(../images/backgr.jpg);
   background-size: cover;
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
 }
 .main-title {
   font-size: 41px;
@@ -36,6 +38,22 @@ p {
   animation-duration: 10000ms;
   animation-delay: 1000ms;
   animation-iteration-count: infinite;
+}
+
+.sodContainer {
+  position: relative;
+}
+.sod{
+      position: absolute;
+    top: 235px;
+    left: 1198px;
+    color: #1d321d;
+    background-color: #547d5a3b;
+    border: none;
+    border-radius: 16px;
+}
+.main-draw{
+  margin-top: 80px
 }
 .choosePlayerContainer {
   display: flex;

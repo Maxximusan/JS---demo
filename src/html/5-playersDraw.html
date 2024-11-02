@@ -22,9 +22,13 @@
   <main class="main">
   <div class="mt-container">
     <h2 class="main-title"> Приветствую вас на жеребъевке турнира по деберцу на 5 человек!!! </h2>
+    <div class="sodContainer">
+      <button class="sod" type="button" data-action="show">Show optional draw</button>
+    </div>
   </div>
 
-    <div class="choosePlayerContainer">
+  <div class="main-draw" id="mainDraw">
+    <div class="choosePlayerContainer" >
         <div class="playerContainer appx">
             <h3 class="title altTitle" data-active-color="define-first-player"> Определяем 1го участника</h3>
           <button class="btn" type="button" data-action="choose1"> LET'S GO !</button>
@@ -66,9 +70,10 @@
           <p class="ps-description" id="valueName8"><span id="valueName81"> Игрок 5</span>  получает расписание игр в следуюшем порядке:  <span id="valueName82">0-0-0</span></p>
         </div>
     </div>
+</div>
 
     <!-- Выборочно по договоренности части игр -->
-     <div class="hidden">
+     <div class="hidden" id="optionalDraw">
         <div class="chooseOptionalGames">
      
          <h2 class="title"> Жеребъевка выборочных игр по договоренности</h2>

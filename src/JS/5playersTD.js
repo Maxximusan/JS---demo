@@ -53,6 +53,10 @@ const refs = {
 
   changeAction9: document.querySelector('button[data-action = "choose9"]'),
   schreludeList: document.querySelector(".schreludeList"),
+  
+  optionalDraw: document.querySelector('button[data-action = "show"]'),
+  mainDraw: document.querySelector("#mainDraw"),
+  showOptionalDraw: document.querySelector("#optionalDraw"),
 };
 
 refs.changeAction1.addEventListener("click", chooseName, { once: true }); //третий параметр - снятие слушателя(очищение памяти)
@@ -72,6 +76,9 @@ refs.changeAction7.addEventListener("click", chosePSForFouAndFifPlayers, {
 });
 
 refs.changeAction9.addEventListener("click", chooseGamesRandom, { once: true });
+refs.optionalDraw.addEventListener("click", optionalDraw, {
+  once: true,
+});
 
 //Future names of chosen players
 let firstRoundNumber = 0;
@@ -310,10 +317,17 @@ function chosePSForFouAndFifPlayers() {
 //2.4 Опциональный вариант для договорной жеребъевки игр выборочно !!!!
 function chooseGamesRandom() {
   shuffleArray(randomArrayOfGames);
+  disabledButton(refs.changeAction9)
   refs.schreludeList.insertAdjacentHTML(
     "beforeend",
     renderSchreludeOrNamesList(randomArrayOfGames)
   );
+}
+
+//2.5 Показываем опциональную жеребъевку (пункт 2.4) и прячем основную жеребъевку всё до пункта 2.4
+function optionalDraw() {
+  showOptionalDraw(refs.showOptionalDraw)
+  hideMainDraw(refs.mainDraw);
 }
 
 // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
@@ -400,6 +414,16 @@ function inactiveTitleColor(valueTitle) {
 //5.1 Доп класс
 function addAnotherClassForPlayerName(valueName) {
   valueName.classList.add("js-actions2");
+}
+
+//5.2 (дополнительно к 2.5) Класс Хидден
+function hideMainDraw(valueName) {
+  valueName.classList.add('hidden')
+}
+
+//5.3 -\\- удаляем класс хидден
+function showOptionalDraw(valueName) {
+  valueName.classList.remove('hidden')
 }
 
 //6 дополнительно к 1 и 2
